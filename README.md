@@ -2,7 +2,7 @@
 <br>
 <h2>Grupo 5</h5>
 <br>
-<a href="https://analisisg5.wordpress.com/">Blog</a>
+<a href="https://analisisg5.wordpress.com/">Blog del proyecto</a>
 <br>
 <h3>Nota Final - NA</h3>
 
