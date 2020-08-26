@@ -21,7 +21,7 @@
                     <td>{{item.Producto}}</td>
                     <td>
                         <div class="form-group col-md-2">
-                            <input id="{{item.Cantidad}}" type="text" [(ngModel)]="AuxiliarDeActualizacion.Cantidad" class="form-control"  placeholder="{{item.Cantidad}}">
+                            <input id="{{item.Cantidad}}" [(ngModel)]="item.Cantidad" type="number" class="form-control"  placeholder="{{item.Cantidad}}">
                         </div>
                     </td>
                     <td>Q {{item.Precio}}</td>

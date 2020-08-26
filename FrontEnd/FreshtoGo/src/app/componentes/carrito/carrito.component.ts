@@ -52,8 +52,9 @@ export class CarritoComponent implements OnInit {
 
   
   ActualizarLaTroca(){
-    
-    console.log(this.AuxiliarDeActualizacion);
+    this.nedGloriusVAR = this.listaProducto;
+    localStorage.setItem('currentUser', JSON.stringify(this.nedGloriusVAR));
+    console.log(JSON.parse(localStorage.getItem('currentUser')));
   }
 
 }
