@@ -18,10 +18,14 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of listaProducto">
-                    <td>{{item.descripcion}}</td>
-                    <td>{{item.cantidad}}</td>
-                    <td>Q {{item.precio}}</td>
-                    <td>Q {{item.cantidad*item.precio}}</td>
+                    <td>{{item.Producto}}</td>
+                    <td>
+                        <div class="form-group col-md-2">
+                            <input id="{{item.Cantidad}}" type="text" [(ngModel)]="AuxiliarDeActualizacion.Cantidad" class="form-control"  placeholder="{{item.Cantidad}}">
+                        </div>
+                    </td>
+                    <td>Q {{item.Precio}}</td>
+                    <td>Q {{item.Cantidad*item.Precio}}</td>
                 </tr>
             </tbody>
 
@@ -30,6 +34,8 @@
             <br>
             &nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;
+            <button (click)="ActualizarLaTroca()" type="button" class="btn btn-warning">Actualizar</button>  
+            &nbsp;
             <button type="button" class="btn btn-success">Comprar</button>  
 
         </table>

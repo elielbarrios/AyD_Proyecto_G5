@@ -1,12 +1,14 @@
 export class carrito{
     
-    val1:string;
-    val2:string;
-    val3:string;
+    Producto:string;
+    Cantidad:number;
+    Precio:number;
+    Sutotal:number;
 
     carrito(){
-        this.val1 = '';
-        this.val2 = '';
-        this.val3 = '';
+        this.Producto = '';
+        this.Cantidad = 0;
+        this.Precio = 0;
+        this.Sutotal = 0;
     }
 }

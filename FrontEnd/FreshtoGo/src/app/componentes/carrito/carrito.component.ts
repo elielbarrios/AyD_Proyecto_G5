@@ -8,12 +8,21 @@ import { carrito } from 'src/app/modelos/carrito';
 })
 export class CarritoComponent implements OnInit {
 
-  nedGloriusVAR = new carrito();
+  nedGloriusVAR: Array<carrito>;
+  carritoAux: any;
+  AuxiliarDeActualizacion:carrito;
 
   constructor() { 
-    this.nedGloriusVAR.val1 = 'imagen';
-    this.nedGloriusVAR.val2 = 'descripcion';
-    this.nedGloriusVAR.val3 = 'cantidad';
+
+    this.AuxiliarDeActualizacion = new carrito();
+    this.nedGloriusVAR = new Array<carrito>();
+
+    this.carritoAux = {Producto: "Producto 1", Cantidad: 1, Precio: 1, Sutotal: 1};
+    this.nedGloriusVAR.push(this.carritoAux);
+    
+    this.carritoAux = {Producto: "Producto 2", Cantidad: 4, Precio: 3, Sutotal: 1};
+    this.nedGloriusVAR.push(this.carritoAux);
+    
     localStorage.setItem('currentUser', JSON.stringify(this.nedGloriusVAR));
     this.inicializacor();
   }
@@ -24,30 +33,27 @@ export class CarritoComponent implements OnInit {
   listaProducto:any;
 
   inicializacor(){
-    this.nedGloriusVAR.val1 = '';
-    this.nedGloriusVAR.val2 = '';
-    this.nedGloriusVAR.val3 = '';
     this.nedGloriusVAR = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.nedGloriusVAR);
 
-    this.listaProducto = [
-      {
-        "descripcion": "Papa",
-        "cantidad": 3,
-        "precio":15
-      },
-      {
-        "descripcion": "Cilantro",
-        "cantidad": 1,
-        "precio":2
-      },
-      {
-        "descripcion": "Manzana",
-        "cantidad": 4,
-        "precio":25
-      }
-    ]
+    this.listaProducto =  this.nedGloriusVAR;
 
+  }
+
+
+  /*
+  AuxiliarDeActualizacion: Array<carrito>;
+  ActualizarLaTroca(){
+    this.AuxiliarDeActualizacion = new Array<carrito>();
+    this.AuxiliarDeActualizacion = JSON.parse(localStorage.getItem('currentUser'));
+
+  }
+  */
+
+  
+  ActualizarLaTroca(){
+    
+    console.log(this.AuxiliarDeActualizacion);
   }
 
 }
