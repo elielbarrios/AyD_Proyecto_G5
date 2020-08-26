@@ -15,7 +15,7 @@ municipio VARCHAR(50),
 direccion VARCHAR(50),
 detalles  VARCHAR(50),
 fk_id_usuario INT,
-FOREIGN KEY (fk_id_usuario) REFERENCES usuario (fk_id_usuario)
+FOREIGN KEY (fk_id_usuario) REFERENCES usuario (id_usuario)
 );
 
 CREATE TABLE producto (
