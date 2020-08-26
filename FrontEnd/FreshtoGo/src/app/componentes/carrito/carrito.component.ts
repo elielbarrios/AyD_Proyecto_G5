@@ -32,19 +32,21 @@ export class CarritoComponent implements OnInit {
 
     this.listaProducto = [
       {
-        "descripcion": "blablabla",
-        "cantidad": "1"
+        "descripcion": "Papa",
+        "cantidad": 3,
+        "precio":15
       },
       {
-        "descripcion": "blablabla",
-        "cantidad": "1"
+        "descripcion": "Cilantro",
+        "cantidad": 1,
+        "precio":2
       },
       {
-        "descripcion": "blablabla",
-        "cantidad": "1"
+        "descripcion": "Manzana",
+        "cantidad": 4,
+        "precio":25
       }
     ]
-
 
   }
 

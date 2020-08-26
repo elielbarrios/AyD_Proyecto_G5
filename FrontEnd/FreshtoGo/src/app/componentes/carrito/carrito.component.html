@@ -4,7 +4,7 @@
     </head>
     <body>
         <div class="alert alert-success" role="alert">
-            aqui va el logo
+            <img src="assets/logo.png" height="150" width="250">
         </div>
 
         <table class="table">
@@ -12,12 +12,16 @@
               <tr>
                 <th scope="col">Producto</th>
                 <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Subtotal</th>
               </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of listaProducto">
                     <td>{{item.descripcion}}</td>
                     <td>{{item.cantidad}}</td>
+                    <td>Q {{item.precio}}</td>
+                    <td>Q {{item.cantidad*item.precio}}</td>
                 </tr>
             </tbody>
 
