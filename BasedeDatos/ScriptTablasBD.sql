@@ -25,3 +25,26 @@ nombre VARCHAR(50),
 precio DOUBLE,
 );
 
+
+CREATE TABLE orden_producto (
+id_orden INT PRIMARY KEY AUTO_INCREMENT,
+fk_id_producto INT,
+cantidad INT,
+FOREIGN KEY (fk_id_producto) REFERENCES producto(id_producto)
+);
+
+CREATE TABLE orden (
+fecha_orden DATE,
+fk_id_usuario INT,
+fk_id_orden INT,
+estado_orden VARCHAR(50),
+FOREIGN KEY (fk_id_usuario) REFERENCES usuario(id_usuario),
+FOREIGN KEY (fk_id_orden) REFERENCES carrito(id_orden)
+);
+
+CREATE TABLE categoria (
+id_categoria INT PRIMARY KEY AUTO_INCREMENT,
+nombre_categoria VARCHAR(50),
+root_id INT,
+FOREIGN KEY (root_id) REFERENCES categoria(id_categoria)
+);
