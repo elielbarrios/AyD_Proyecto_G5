@@ -1,14 +1,14 @@
 export class carrito{
     
+    id:number;
     Producto:string;
     Cantidad:number;
     Precio:number;
-    Sutotal:number;
 
     carrito(){
+        this.id = 0;
         this.Producto = '';
         this.Cantidad = 0;
         this.Precio = 0;
-        this.Sutotal = 0;
     }
 }

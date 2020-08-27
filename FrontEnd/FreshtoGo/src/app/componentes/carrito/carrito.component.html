@@ -14,22 +14,20 @@
                 <th scope="col">Cantidad</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Subtotal</th>
+                <th scope="col">Eliminar</th>
               </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of listaProducto">
                     <td>{{item.Producto}}</td>
                     <td>
-                        <div class="form-group col-md-2">
-<<<<<<< HEAD
-                            <input id="{{item.Cantidad}}" type="number" [(ngModel)]="item.Cantidad" class="form-control"  placeholder="{{item.Cantidad}}">
-=======
+                        <div class="form-group col-md-3">
                             <input id="{{item.Cantidad}}" [(ngModel)]="item.Cantidad" type="number" class="form-control"  placeholder="{{item.Cantidad}}">
->>>>>>> 72c9f69928e6c1b8e1491d0a901b77b560531794
                         </div>
                     </td>
                     <td>Q {{item.Precio}}</td>
                     <td>Q {{item.Cantidad*item.Precio}}</td>
+                    <td><button class="btn-danger" (click)="EliminarProducto(item)"><i class="far fa-trash-alt"></i></button></td>
                 </tr>
             </tbody>
 
@@ -38,9 +36,9 @@
             <br>
             &nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;
-            <button (click)="ActualizarLaTroca()" type="button" class="btn btn-warning">Actualizar</button>  
+            <button (click)="ActualizarLaTroca()" type="button" class="btn btn-warning">Guardar cambios <i class="fas fa-save"></i></button>  
             &nbsp;
-            <button type="button" class="btn btn-success">Comprar</button>  
+            <button (click)="Compra()" type="button" class="btn btn-success">Realizar compra <i class="far fa-credit-card"></i></button>  
 
         </table>
 
