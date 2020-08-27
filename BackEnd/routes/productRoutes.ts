@@ -15,6 +15,7 @@ class ProductRoutes
     config() : void
     {
         this.router.get('/products',productController.getProducts);
+        this.router.get('/products/:id', productController.getProduct);
     }
 }
 const categoriesRoutes = new ProductRoutes();
