@@ -5,7 +5,7 @@ class ProductController
 
     async getProducts(res : Response, req : Request) : Promise<void>
     {
-        //mysql integration
+        //investigar sobre la integracion con mysql
     }
     
 }
