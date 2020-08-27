@@ -20,8 +20,9 @@ FOREIGN KEY (fk_id_usuario) REFERENCES usuario (id_usuario)
 
 CREATE TABLE producto (
 id_producto INT PRIMARY KEY AUTO_INCREMENT,
-descripcion VARCHAR(50),
+descripcion VARCHAR(500),
 nombre VARCHAR(50),
+imagen VARCHAR(500),
 precio DOUBLE
 );
 
