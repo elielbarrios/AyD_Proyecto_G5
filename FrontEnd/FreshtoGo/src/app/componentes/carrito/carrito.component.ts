@@ -17,12 +17,21 @@ export class CarritoComponent implements OnInit {
     this.AuxiliarDeActualizacion = new carrito();
     this.nedGloriusVAR = new Array<carrito>();
 
-    this.carritoAux = {id:1, Producto: "Producto 1", Cantidad: 1, Precio: 1, Sutotal: 1};
+    this.carritoAux = {id:1, Producto: "Tomate", Cantidad: 5, Precio: 7.12, Sutotal: 1};
     this.nedGloriusVAR.push(this.carritoAux);
     
-    this.carritoAux = {id:2, Producto: "Producto 2", Cantidad: 4, Precio: 3, Sutotal: 1};
+    this.carritoAux = {id:2, Producto: "Sandia", Cantidad: 2, Precio: 4.65, Sutotal: 1};
+    this.nedGloriusVAR.push(this.carritoAux);
+
+    this.carritoAux = {id:2, Producto: "Zanahoria", Cantidad: 2, Precio: 4.66, Sutotal: 1};
     this.nedGloriusVAR.push(this.carritoAux);
     
+    this.carritoAux = {id:2, Producto: "Uva", Cantidad: 2, Precio: 3.94, Sutotal: 1};
+    this.nedGloriusVAR.push(this.carritoAux);
+
+    this.carritoAux = {id:2, Producto: "Plátano", Cantidad: 2, Precio: 6.33, Sutotal: 1};
+    this.nedGloriusVAR.push(this.carritoAux);
+
     localStorage.setItem('currentUser', JSON.stringify(this.nedGloriusVAR));
     this.inicializacor();
   }
