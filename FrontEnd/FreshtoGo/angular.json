@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FreshtoGo"
+    }
+  },
+  "defaultProject": "FreshtoGo",
+  "cli": {
+    "analytics": "698b0944-5593-4330-89e5-8d90bf831419"
+  }
 }
