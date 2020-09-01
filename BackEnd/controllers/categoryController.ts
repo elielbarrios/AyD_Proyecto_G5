@@ -4,10 +4,16 @@ import db from '../conf/database';
 class CategoryController
 {
 
-    async getCategories(res : Response, req : Request) : Promise<void> //obtenerCategorias
+    async getCategories(res : Response, req : Request) : Promise<void> //obtener todas las Categorias
     {
         const retVal = await db.query('SELECT * FROM categoria'); //valor a retornar
         console.log(retVal);
+        res.json(retVal);
+    }
+
+    async createCategory(res : Response, req : Request) : Promise<void> //creacion de una nueva categoria
+    {
+        const retVal =  await db.query('INSERT INTO category set ?', [req.body]); //valor a retornar
         res.json(retVal);
     }
 
