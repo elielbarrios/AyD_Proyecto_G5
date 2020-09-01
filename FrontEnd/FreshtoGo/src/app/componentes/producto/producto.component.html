@@ -1,0 +1,83 @@
+<!-- Create Card -->
+<div class="col-md-4">
+    <div class="card">
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h1>Crear Producto</h1>
+      </div>
+      <img class="card-img-top" src="">
+      <div class="card-body">
+        <label for="nameProduct">Nombre Producto</label>
+        <input type="text" class="form-control" id="nameProduct">
+        <label for="description">Descripción</label>
+        <input type="text" class="form-control" id="description">
+        <label for="image">Imagen</label>
+        <input type="url" class="form-control" id="image">
+        <label for="price">Precio</label>
+        <input type="number" class="form-control" id="price">
+        <p></p>
+        <a class="btn btn-info btn-block">
+            Crear
+        </a>
+      </div>
+    </div>
+</div>
+
+<!-- Edit Card -->
+<div class="col-md-4">
+    <div class="card">
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h1>Editar Producto</h1>
+      </div>
+      <img class="card-img-top" src="">
+      <div class="card-body">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="choose" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Elegir Producto
+        </button>
+        <div class="dropdown-menu" aria-labelledby="choose">
+            <a class="dropdown-item" (click)="seleccionar()">Action</a>
+            <a class="dropdown-item" (click)="seleccionar()">Another action</a>
+            <a class="dropdown-item" (click)="seleccionar()">Something else here</a>
+        </div>
+        <div>
+            <label for="newnameProduct">Nombre Producto</label>
+        <input type="text" class="form-control" id="newnameProduct">
+        <label for="newDescription">Descripción</label>
+        <input type="text" class="form-control" id="newdescription">
+        <label for="newImage">Imagen</label>
+        <input type="url" class="form-control" id="newImage">
+        <label for="newPrice">Precio</label>
+        <input type="number" class="form-control" id="newPrice">
+            <p></p>
+            <a class="btn btn-info btn-block">
+                Confirmar
+            </a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Detele Card -->
+<div class="col-md-4">
+    <div class="card">
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h1>Eliminar Producto</h1>
+      </div>
+      <img class="card-img-top" src="">
+      <div class="card-body">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="delete" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Elegir Producto
+        </button>
+        <div class="dropdown-menu" aria-labelledby="delete">
+            <a class="dropdown-item" (click)="delete()">Action</a>
+            <a class="dropdown-item" (click)="delete()">Another action</a>
+            <a class="dropdown-item" (click)="delete()">Something else here</a>
+            </div>
+        <div>
+            <br>
+            <a class="btn btn-info btn-block btn-danger">
+                Confirmar
+            </a>
+        </div>
+      </div>
+    </div>
+</div>
