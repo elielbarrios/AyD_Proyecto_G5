@@ -15,6 +15,8 @@ class CategoryRoutes
     config() : void
     {
         this.router.get('/categories',categoryController.getCategories);
+        this.router.put('/categories',categoryController.updateCategory);
+        this.router.delete('/categories',categoryController.deleteCategory);
     }
 }
 const categoriesRoutes = new CategoryRoutes();
