@@ -16,6 +16,7 @@ class ProductRoutes
     {
         this.router.get('/products',productController.getProducts);
         this.router.get('/products/:id', productController.getProduct);
+        this.router.post('/products',productController.addProduct);
     }
 }
 const categoriesRoutes = new ProductRoutes();
