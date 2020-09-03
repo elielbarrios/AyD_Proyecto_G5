@@ -4,10 +4,10 @@ import db from '../conf/database';
 class CategoryController
 {
 
-    async getCategories(res : Response, req : Request) : Promise<void> //obtener todas las Categorias
+    async getCategories(req : Request, res : Response) : Promise<void> //obtener todas las Categorias
     {
         const retVal = await db.query('SELECT * FROM categoria'); //valor a retornar
-        console.log(retVal);
+        //console.log(retVal);
         res.json(retVal);
     }
 
