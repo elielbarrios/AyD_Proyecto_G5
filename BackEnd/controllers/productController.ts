@@ -24,7 +24,7 @@ class ProductController
 
     async updateProduct(res : Response, req : Request) : Promise<void>///actualizar los datos de un producto en especifico
     {
-        const retVal = await db.query('UPDATE producto SET nombre = ? WHERE id_producto = ?', [req.body.nombre, req.body.descripcion, req.body.imagen, req.body.precio] ); //valor a retornar
+        const retVal = await db.query('UPDATE producto SET ? WHERE id_producto = ?', [req.body, req.params.id] ); //valor a retornar
         res.status(200).json(retVal);
     }
 
@@ -36,7 +36,7 @@ class ProductController
 
     async deleteAllProducts(res : Response, req : Request) : Promise<void>//eliminar todos los productos
     {
-        const retVal = await db.query('DELETE FROM producto', [req.params.id]); 
+        const retVal = await db.query('DELETE FROM producto'); //valor a retornar
         res.status(200).json(retVal);
     }
 

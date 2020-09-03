@@ -1,6 +1,6 @@
 import express, {Application} from 'express';
 import productRoutes from './routes/productRoutes';
-
+import categoryRoutes from './routes/categoryRoutes';
 
 class Server
 {
@@ -23,7 +23,7 @@ class Server
     routes() : void
     {
         this.app.use('/api/',productRoutes);
-        
+        this.app.use('/api/',categoryRoutes);
     }
 
     listen() : void
