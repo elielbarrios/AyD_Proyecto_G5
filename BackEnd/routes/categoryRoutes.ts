@@ -14,10 +14,10 @@ class CategoryRoutes
 
     config() : void
     {
+        this.router.post('/categories',categoryController.createCategory);
         this.router.get('/categories',categoryController.getCategories);
         this.router.put('/categories',categoryController.updateCategory);
         this.router.delete('/categories/:id',categoryController.deleteCategory);
-        this.router.post('/categories',categoryController.createCategory);
     }
 }
 const categoriesRoutes = new CategoryRoutes();

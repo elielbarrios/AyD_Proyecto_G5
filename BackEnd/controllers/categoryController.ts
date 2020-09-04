@@ -13,7 +13,7 @@ class CategoryController
 
     async createCategory(req : Request, res : Response) : Promise<void> //creacion de una nueva categoria
     {
-        const retVal =  await db.query('INSERT INTO category set ?', [req.body]); //valor a retornar
+        const retVal =  await db.query('INSERT INTO categoria set ?', [req.body]); //valor a retornar
         res.json(retVal);
     }
 

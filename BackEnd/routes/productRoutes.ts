@@ -17,8 +17,8 @@ class ProductRoutes
         this.router.get('/products',productController.getProducts);
         this.router.get('/products/:id', productController.getProduct);
         this.router.post('/products',productController.addProduct);
-        this.router.delete('/deleteproduct/:id',productController.deleteProduct);
-        this.router.delete('/deleteproducts',productController.deleteAllProducts);
+        this.router.delete('/products/:id',productController.deleteProduct);
+        this.router.delete('/products',productController.deleteAllProducts);
         this.router.put('/updateproduct/:id',productController.updateProduct);
     }
 }
