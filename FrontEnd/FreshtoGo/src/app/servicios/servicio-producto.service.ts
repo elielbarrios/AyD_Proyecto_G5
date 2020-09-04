@@ -19,8 +19,8 @@ export class ServicioProductoService {
     return this.http.post(`${this.API_URI}`,category);
   }
 
-  updateProduct(category:Producto){
-    return this.http.put(`${this.API_URI}`,category);
+  updateProduct(id:any,category:Producto){
+    return this.http.put(`${this.API_URI}/${id}`,category);
   }
 
   deleteProduct(id:any){

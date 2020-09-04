@@ -34,11 +34,11 @@ export class ProductoComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    this.getCategorys();
+    this.getProducts();
     console.log(this.listadoProductos);
   }
 
-  getCategorys():any
+  getProducts():any
   {
     this.productoServicio.getProducts()
     .subscribe(
@@ -51,6 +51,7 @@ export class ProductoComponent implements OnInit {
 
   seleccionar(item){
     console.log(item)
+    this.selectProduct.id_producto = item.id_producto;
     this.selectProduct.nombre = item.nombre;
     this.selectProduct.descripcion = item.descripcion;
     this.selectProduct.imagen = item.imagen;
@@ -65,33 +66,73 @@ export class ProductoComponent implements OnInit {
 
   delete(){
     console.log(this.idDelete);
-    this.productoServicio.deleteProduct(this.idDelete);
+    this.productoServicio.deleteProduct(this.idDelete)
+    .subscribe(
+      res=>{
+        console.log(res);
+        alert("Producto eliminado con éxito!");
+      },
+      err => console.log(err)
+    );
+    this.selected = "";
+    this.ngOnInit();
   }
 
   create(){
     let product:Producto={
-      nombre: this.newProduct.nombre,
       descripcion: this.newProduct.descripcion,
+      nombre: this.newProduct.nombre,
       imagen: this.newProduct.imagen,
       precio: this.newProduct.precio
     }
+    delete product.id_producto;
     if(product.nombre != "" && product.descripcion != "" && product.imagen != "" && product.precio != 0)
     {
-      this.productoServicio.createProduct(this.newProduct);
+      console.log(product);
+      this.productoServicio.createProduct(product)
+      .subscribe(
+        res=>{
+          console.log(res);
+          alert("Producto creado con éxito!");
+        },
+        err => console.log(err)
+      );
     }
+    
+    this.newProduct.id_producto=0;
+    this.newProduct.descripcion="";
+    this.newProduct.nombre="";
+    this.newProduct.imagen="";
+    this.newProduct.precio=0;
+    this.ngOnInit();
   }
 
   update(){
     let product:Producto={
-      nombre: this.selectProduct.nombre,
       descripcion: this.selectProduct.descripcion,
+      nombre: this.selectProduct.nombre,
       imagen: this.selectProduct.imagen,
       precio: this.selectProduct.precio
     }
     if(product.nombre != "" && product.descripcion != "" && product.imagen != "" && product.precio != 0)
     {
-      this.productoServicio.updateProduct(this.selectProduct);
+      console.log(this.selectProduct);
+      this.productoServicio.updateProduct(this.selectProduct.id_producto,product)
+      .subscribe(
+        res=>{
+          console.log(res);
+          alert("Producto actualizado con éxito!");
+        },
+        err => console.log(err)
+      );
     }
+    
+    this.selectProduct.id_producto=0;
+    this.selectProduct.descripcion="";
+    this.selectProduct.nombre="";
+    this.selectProduct.imagen="";
+    this.selectProduct.precio=0;
+    this.ngOnInit();
   }
 
 }
