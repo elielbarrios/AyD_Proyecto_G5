@@ -6,16 +6,22 @@ import ip from './IP';
 @Injectable({
   providedIn: 'root'
 })
-export class CatalogConectionService {
+export class CatalogConectionService 
+{
 
-  constructor(private http: HttpClient) { }
+    constructor (private http: HttpClient) 
+    { 
 
-  getProductos(){
-    return this.http.get(ip + '/products'); 
-  }
+    }
 
-  getProductos_id(retorno:Producto){
-    return this.http.post(ip + '/products', retorno); 
-  }
+    public getProductos () 
+    {
+        return this.http.get('http://52.15.119.221:3000/api/products'); 
+    }
+
+    public getProductos_id (retorno:Producto)
+    {
+        return this.http.post(ip + '/products', retorno); 
+    }
 
 }

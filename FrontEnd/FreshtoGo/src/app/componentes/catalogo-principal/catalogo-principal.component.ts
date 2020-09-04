@@ -9,54 +9,82 @@ import { CatalogConectionService } from 'src/app/servicios/catalog-conection.ser
   templateUrl: './catalogo-principal.component.html',
   styleUrls: ['./catalogo-principal.component.css']
 })
-export class CatalogoPrincipalComponent implements OnInit {
+export class CatalogoPrincipalComponent implements OnInit 
+{
+    /* 
+        - Variables para manejo del carrito - 
+    */
+    public carrito: Array<carrito>;
+    public carritoAux: any;
+    public productList:any;
+    // ------------ //
 
-  vario = new Producto();
-
-  // - Variables para manejo del carrito - //
-  Carrito: Array<carrito>;
-  carritoAux: any;
-  // ------------ //
-
-  constructor(private catalogo:CatalogConectionService, private router: Router) { 
+    constructor (private catalogo:CatalogConectionService, private router: Router) 
+    { 
+      
+      
+        if (JSON.parse(localStorage.getItem('currentUser')) != null) 
+        {
+            this.carrito = JSON.parse(localStorage.getItem('currentUser'));
+        }
+        else
+        {
+            this.carrito = new Array<carrito>();
+        }
+        
+        this.showCatalog();
     
-    
-    if(JSON.parse(localStorage.getItem('currentUser')) != null){
-      this.Carrito = JSON.parse(localStorage.getItem('currentUser'));
-      //console.log("ifo: " + this.Carrito);
     }
-    else{
-      this.Carrito = new Array<carrito>();
+
+    ngOnInit(): void 
+    {
     }
+
     
-    this.showCatalog();
-  
-  }
+    public showCatalog(): any 
+    {
+        try 
+        {
+            this.catalogo.getProductos().subscribe((res)=>{
+                console.log('Respuesta Node',res);
+                this.productList = res;
+            },
+            (err)=>{});
+            
+            return "res existente";
+        } 
+        catch (error) 
+        {
+            return "error de conexion";
+        }
+        
+    }
 
-  ngOnInit(): void {
-  }
+    public AgregarACarrito (item:any): number
+    {
+        try {
 
-  productList:any;
-  showCatalog(){
+            this.carritoAux = {id:1, Producto: item.nombre, Cantidad: 1, Precio: item.precio, Sutotal: item.precio};
+            this.carrito.push(this.carritoAux);
+            alert( item.nombre + " agregado al carrito, puedes continuar");
+            return 1;
 
-    this.catalogo.getProductos().subscribe((res)=>{
-      console.log('Respuesta Node',res);
-      this.productList = res;
-    },
-    (err)=>{
-        //alert(err);
-    });
+        } catch (error) {
+            return 0;
+        }
+    }
 
-  }
-
-  AgregarACarrito(item:any){
-    this.carritoAux = {id:1, Producto: item.nombre, Cantidad: 1, Precio: item.precio, Sutotal: item.precio};
-    this.Carrito.push(this.carritoAux);
-  }
-
-  irACarrito(){
-    //localStorage.setItem('currentUser', JSON.stringify(this.Carrito));
-    this.router.navigate(['/carrito']);
-  }
+    public irACarrito (): number
+    {
+        if (this.carrito != null) {
+            localStorage.setItem('currentUser', JSON.stringify(this.carrito));
+            this.router.navigate(['/carrito']);
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 
 }

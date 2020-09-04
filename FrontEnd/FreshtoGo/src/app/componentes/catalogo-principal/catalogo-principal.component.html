@@ -1,9 +1,4 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    </head>
-    <body>
-        
+
         <div class="alert alert-success" role="alert">
             <img src="assets/logo.png" height="150" width="250">
         </div>
@@ -28,13 +23,13 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                  <th scope="col">IMG</th>
+                  <th scope="col"></th>
                   <th scope="col">Descripcion</th>
                   <th scope="col">Agregar</th>
               </thead>
             <tbody>
                 <tr *ngFor="let item of productList">
-                    <td><img src="{{item.imagen}}"></td>
+                    <td><img src="{{item.imagen}}" width="200" height="150"></td>
                     <td>
                         {{item.nombre}} <br>
                         Descripcion:  {{item.descripcion}}  <br>
@@ -45,6 +40,3 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
-    </body>
-</html>
