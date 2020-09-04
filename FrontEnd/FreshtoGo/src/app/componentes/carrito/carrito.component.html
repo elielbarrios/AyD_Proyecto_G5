@@ -1,8 +1,4 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    </head>
-    <body>
+
         <div class="alert alert-success" role="alert">
             <img src="assets/logo.png" height="150" width="250">
         </div>
@@ -22,7 +18,7 @@
                     <td>{{item.Producto}}</td>
                     <td>
                         <div class="form-group col-md-3">
-                            <input id="{{item.Cantidad}}" [(ngModel)]="item.Cantidad" type="number" class="form-control"  placeholder="{{item.Cantidad}}">
+                            <input id="{{item.Cantidad}}" [(ngModel)]="item.Cantidad" type="number" class="form-control"  placeholder="{{item.Cantidad}}" min="1">
                         </div>
                     </td>
                     <td>Q {{item.Precio}}</td>
@@ -41,6 +37,3 @@
             <button (click)="Compra()" type="button" class="btn btn-success">Realizar compra <i class="far fa-credit-card"></i></button>  
 
         </table>
-
-    </body>
-</html>

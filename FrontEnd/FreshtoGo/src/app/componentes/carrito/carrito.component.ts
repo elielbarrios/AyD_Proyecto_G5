@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router"
 import { carrito } from 'src/app/modelos/carrito';
 
 @Component({
@@ -6,74 +7,45 @@ import { carrito } from 'src/app/modelos/carrito';
   templateUrl: './carrito.component.html',
   styleUrls: ['./carrito.component.css']
 })
-export class CarritoComponent implements OnInit {
+export class CarritoComponent implements OnInit 
+{
 
-  nedGloriusVAR: Array<carrito>;
-  carritoAux: any;
-  AuxiliarDeActualizacion:carrito;
+    public carrito: Array<carrito>;
+    public carritoAux: any;
+    public listaProducto:Array<carrito>;
 
-  constructor() { 
-
-    this.AuxiliarDeActualizacion = new carrito();
-    this.nedGloriusVAR = new Array<carrito>();
-
-    this.carritoAux = {id:1, Producto: "Tomate", Cantidad: 5, Precio: 7.12, Sutotal: 1};
-    this.nedGloriusVAR.push(this.carritoAux);
+    constructor (private router: Router) 
+    { 
+        this.carrito = new Array<carrito>();
+        this.inicializacor();
+    }
     
-    this.carritoAux = {id:2, Producto: "Sandia", Cantidad: 2, Precio: 4.65, Sutotal: 1};
-    this.nedGloriusVAR.push(this.carritoAux);
+    ngOnInit (): void 
+    {
+    } 
 
-    this.carritoAux = {id:2, Producto: "Zanahoria", Cantidad: 2, Precio: 4.66, Sutotal: 1};
-    this.nedGloriusVAR.push(this.carritoAux);
-    
-    this.carritoAux = {id:2, Producto: "Uva", Cantidad: 2, Precio: 3.94, Sutotal: 1};
-    this.nedGloriusVAR.push(this.carritoAux);
+    public inicializacor() 
+    {
+        this.carrito = JSON.parse(localStorage.getItem('currentUser'));
+        console.log(this.carrito);
+        this.listaProducto =  this.carrito;
+    }
 
-    this.carritoAux = {id:2, Producto: "Plátano", Cantidad: 2, Precio: 6.33, Sutotal: 1};
-    this.nedGloriusVAR.push(this.carritoAux);
+    public ActualizarLaTroca ()
+    {
+        this.carrito = this.listaProducto;
+        localStorage.setItem('currentUser', JSON.stringify(this.carrito));
+    }
 
-    localStorage.setItem('currentUser', JSON.stringify(this.nedGloriusVAR));
-    this.inicializacor();
-  }
-  
-  ngOnInit(): void {
-  }
+    public EliminarProducto (item:any)
+    {
+        let i = this.listaProducto.indexOf(item);
+        this.listaProducto.splice(i,1);
+    }
 
-  listaProducto:Array<carrito>;
-
-  inicializacor(){
-    this.nedGloriusVAR = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(this.nedGloriusVAR);
-
-    this.listaProducto =  this.nedGloriusVAR;
-
-  }
-
-
-  /*
-  AuxiliarDeActualizacion: Array<carrito>;
-  ActualizarLaTroca(){
-    this.AuxiliarDeActualizacion = new Array<carrito>();
-    this.AuxiliarDeActualizacion = JSON.parse(localStorage.getItem('currentUser'));
-
-  }
-  */
-
-  
-  ActualizarLaTroca(){
-    this.nedGloriusVAR = this.listaProducto;
-    localStorage.setItem('currentUser', JSON.stringify(this.nedGloriusVAR));
-    console.log(JSON.parse(localStorage.getItem('currentUser')));
-  }
-
-  EliminarProducto(item:any){
-    console.log(item);
-    let i = this.listaProducto.indexOf(item);
-    this.listaProducto.splice(item,i+1);
-  }
-
-  Compra(){
-    // componente carrito
-  }
+    public Compra ()
+    {
+      this.router.navigate(['/factura']);
+    }
 
 }
