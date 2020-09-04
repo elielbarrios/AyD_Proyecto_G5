@@ -8,12 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarritoComponent } from './componentes/carrito/carrito.component';
 import { ProductoComponent } from './componentes/producto/producto.component';
+import { NavigationComponent } from './componentes/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CarritoComponent,
-    ProductoComponent
+    ProductoComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
