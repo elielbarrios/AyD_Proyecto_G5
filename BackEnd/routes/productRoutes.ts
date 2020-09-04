@@ -19,7 +19,7 @@ class ProductRoutes
         this.router.post('/products',productController.addProduct);
         this.router.delete('/products/:id',productController.deleteProduct);
         this.router.delete('/products',productController.deleteAllProducts);
-        this.router.put('/updateproduct/:id',productController.updateProduct);
+        this.router.put('/products/:id',productController.updateProduct);
     }
 }
 const categoriesRoutes = new ProductRoutes();
