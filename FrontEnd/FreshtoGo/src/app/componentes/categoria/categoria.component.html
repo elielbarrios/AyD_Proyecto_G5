@@ -6,10 +6,18 @@
       </div>
       <img class="card-img-top" src="">
       <div class="card-body">
-        <label for="nameCategory">Nombre Categoria</label>
-        <input type="text" class="form-control" id="nameCategory">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="choose" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{selectedFather == "" ? 'Elegir Categoria Padre' : selectedFather }}
+        </button>
+        <div class="dropdown-menu" id="dropdown-Edit" aria-labelledby="choose">
+            <a class="dropdown-item" (click)="seleccionarFather(item)" *ngFor="let item of listadoCategorias">{{item.nombre_categoria}}</a>
+        </div>
+        <div>
+          <label for="nameCategory">Nombre Categoria</label>
+          <input type="text" class="form-control" [(ngModel)]="newName" id="nameCategory">
+        </div>
         <p></p>
-        <a class="btn btn-info btn-block">
+        <a class="btn btn-info btn-block" (click)="create()">
             Crear
         </a>
       </div>
@@ -25,18 +33,16 @@
       <img class="card-img-top" src="">
       <div class="card-body">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="choose" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Elegir Categoria
+        {{selected  == "" ? 'Elegir Categoria' : selected}}
         </button>
-        <div class="dropdown-menu" aria-labelledby="choose">
-            <a class="dropdown-item" (click)="seleccionar()">Action</a>
-            <a class="dropdown-item" (click)="seleccionar()">Another action</a>
-            <a class="dropdown-item" (click)="seleccionar()">Something else here</a>
+        <div class="dropdown-menu" id="dropdown-Edit" aria-labelledby="choose">
+            <a class="dropdown-item" (click)="seleccionar(item)" *ngFor="let item of listadoCategorias">{{item.nombre_categoria}}</a>
         </div>
         <div>
             <label for="nameCategory">Nuevo nombre</label>
             <input type="text" [(ngModel)]="selected" class="form-control" id="nameCategory">
             <p></p>
-            <a class="btn btn-info btn-block">
+            <a class="btn btn-info btn-block" (click)="update()">
                 Confirmar
             </a>
         </div>
@@ -53,13 +59,11 @@
       <img class="card-img-top" src="">
       <div class="card-body">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="delete" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Elegir Categoria
+        {{selectedDelete  == "" ? 'Elegir Categoria' : selectedDelete }}
         </button>
-        <div class="dropdown-menu" aria-labelledby="delete">
-            <a class="dropdown-item" (click)="delete()">Action</a>
-            <a class="dropdown-item" (click)="delete()">Another action</a>
-            <a class="dropdown-item" (click)="delete()">Something else here</a>
-            </div>
+        <div class="dropdown-menu" id="dropdown-Delete" aria-labelledby="delete">
+            <a class="dropdown-item" (click)="delete(item)" *ngFor="let item of listadoCategorias">{{item.nombre_categoria}}</a>
+        </div>
         <div>
             <br>
             <a class="btn btn-info btn-block btn-danger">
