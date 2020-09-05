@@ -60,31 +60,19 @@ export class CatalogoPrincipalComponent implements OnInit
         
     }
 
-    public AgregarACarrito (item:any): number
+    public AgregarACarrito (item:any)
     {
-        try {
-
-            this.carritoAux = {id:1, Producto: item.nombre, Cantidad: 1, Precio: item.precio, Sutotal: item.precio};
-            this.carrito.push(this.carritoAux);
-            alert( item.nombre + " agregado al carrito, puedes continuar");
-            return 1;
-
-        } catch (error) {
-            return 0;
-        }
+       
+        this.carritoAux = {id:1, Producto: item.nombre, Cantidad: 1, Precio: item.precio, Sutotal: item.precio};
+        this.carrito.push(this.carritoAux);
+        alert( item.nombre + " agregado al carrito, puedes continuar");
+           
     }
 
-    public irACarrito (): number
+    public irACarrito ()
     {
-        if (this.carrito != null) {
-            localStorage.setItem('currentUser', JSON.stringify(this.carrito));
-            this.router.navigate(['/carrito']);
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
+        localStorage.setItem('currentUser', JSON.stringify(this.carrito));
+        this.router.navigate(['/carrito']);
     }
 
 }
