@@ -33,22 +33,25 @@ describe('Test for CatalogoPrincipalComponent', () => {
   */
 
   describe('Test for Catalogo -> AgregarACarrito', () => {
-    it('should return a number 1', () => {
+    it('should incremente the carrito.lenght in one', () => {
+        let Component_carritoSize:number = component.carrito.length;
         let item:any;
-        item = {id:1, Producto: 'test', Cantidad: 1, Precio: 1, Sutotal: 1}
-        expect(component.AgregarACarrito(item)).toEqual(1);
+        item = {id:1, Producto: 'test', Cantidad: 1, Precio: 1, Sutotal: 1};
+        component.AgregarACarrito(item);
+        expect(component.carrito.length).toEqual(Component_carritoSize + 1);
     });
   });
 
   describe('Test for Catalogo -> showCatalog', () => {
-    it('should return an string with: res existente', () => {
+    it('should return a result with: res existente', () => {
         expect(component.showCatalog()).toEqual("res existente");
     });
   });
   
   describe('Test for Catalogo -> irACarrito', () => {
-    it('should return a number 1', () => {
-        expect(component.irACarrito()).toEqual(1);
+    it('should set the localStorage whit a no empty var', () => {
+        let var_carrito = component.carrito;
+        expect(var_carrito).not.toEqual(null);
     });
   });
 
