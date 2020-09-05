@@ -1,0 +1,75 @@
+<!-- Create Card -->
+<div class="col-md-4">
+    <div class="card">
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h1>Crear Categoría</h1>
+      </div>
+      <img class="card-img-top" src="">
+      <div class="card-body">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="choose" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{selectedFather == "" ? 'Elegir Categoria Padre' : selectedFather }}
+        </button>
+        <div class="dropdown-menu" id="dropdown-Edit" aria-labelledby="choose">
+            <a class="dropdown-item" (click)="seleccionarFather(item)" *ngFor="let item of listadoCategorias">{{item.nombre_categoria}}</a>
+        </div>
+        <div>
+          <label for="nameCategory">Nombre Categoria</label>
+          <input type="text" class="form-control" [(ngModel)]="newName" id="nameCategory">
+        </div>
+        <p></p>
+        <a class="btn btn-info btn-block" (click)="create()">
+            Crear
+        </a>
+      </div>
+    </div>
+</div>
+
+<!-- Edit Card -->
+<div class="col-md-4">
+    <div class="card">
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h1>Editar Categoría</h1>
+      </div>
+      <img class="card-img-top" src="">
+      <div class="card-body">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="choose" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{selected  == "" ? 'Elegir Categoria' : selected}}
+        </button>
+        <div class="dropdown-menu" id="dropdown-Edit" aria-labelledby="choose">
+            <a class="dropdown-item" (click)="seleccionar(item)" *ngFor="let item of listadoCategorias">{{item.nombre_categoria}}</a>
+        </div>
+        <div>
+            <label for="nameCategory">Nuevo nombre</label>
+            <input type="text" [(ngModel)]="selected" class="form-control" id="nameCategory">
+            <p></p>
+            <a class="btn btn-info btn-block" (click)="update()">
+                Confirmar
+            </a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Detele Card -->
+<div class="col-md-4">
+    <div class="card">
+      <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+        <h1>Eliminar Categoría</h1>
+      </div>
+      <img class="card-img-top" src="">
+      <div class="card-body">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="delete" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{selectedDelete  == "" ? 'Elegir Categoria' : selectedDelete }}
+        </button>
+        <div class="dropdown-menu" id="dropdown-Delete" aria-labelledby="delete">
+            <a class="dropdown-item" (click)="selectDelete(item)" *ngFor="let item of listadoCategorias">{{item.nombre_categoria}}</a>
+        </div>
+        <div>
+            <br>
+            <a class="btn btn-info btn-block btn-danger" (click)="delete()">
+                Confirmar
+            </a>
+        </div>
+      </div>
+    </div>
+</div>
