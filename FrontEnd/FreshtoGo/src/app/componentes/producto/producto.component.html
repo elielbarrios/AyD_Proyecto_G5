@@ -63,7 +63,7 @@
       <img class="card-img-top" src="">
       <div class="card-body">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="delete" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        {{selected}}
+        {{selected == "" ? 'Elegir un producto:' : selected}}
         </button>
         <div class="dropdown-menu" aria-labelledby="delete">
           <a class="dropdown-item" (click)="selectDelete(item)" *ngFor="let item of listadoProductos">{{item.nombre}}</a>
