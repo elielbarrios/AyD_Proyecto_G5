@@ -13,6 +13,7 @@ export class CategoriaComponent implements OnInit {
 
   selected:string = "";
   selectedDelete:string = "";
+  idDelete:number = 0;
   selectedFather:string = "";
   newName:string = "";
   itemSelected:any;
@@ -50,16 +51,23 @@ export class CategoriaComponent implements OnInit {
     this.selectedFather = item.nombre_categoria;
   }
 
-  delete(id:any)
+  selectDelete(id:any)
   {
     this.selectedDelete = id.nombre_categoria;
-    this.categoyService.deleteCategory(id.id_categoria)
+    this.idDelete = id.id_categoria;
+  }
+
+  delete(){
+    this.categoyService.deleteCategory(this.idDelete)
     .subscribe(
       res => {
         console.log(res);
+        alert("Categoría eliminada con exito!");
       },
       err => console.log(err)
     );
+    this.selectedDelete = "";
+    this.idDelete = 0;
   }
 
   update()
@@ -77,10 +85,12 @@ export class CategoriaComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
+          alert("Categoría editada con exito!");
         },
         err => console.log(err)
       );
     }
+    this.selected = "";
   }
 
   create()
@@ -95,11 +105,13 @@ export class CategoriaComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
+          alert("Categoría creada con exito!");
         },
         err => console.log(err)
       );
     }
-    this.ngOnInit();
+    this.selectedFather = "";
+    this.newName = "";
   }
   
 }

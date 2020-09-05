@@ -62,11 +62,11 @@
         {{selectedDelete  == "" ? 'Elegir Categoria' : selectedDelete }}
         </button>
         <div class="dropdown-menu" id="dropdown-Delete" aria-labelledby="delete">
-            <a class="dropdown-item" (click)="delete(item)" *ngFor="let item of listadoCategorias">{{item.nombre_categoria}}</a>
+            <a class="dropdown-item" (click)="selectDelete(item)" *ngFor="let item of listadoCategorias">{{item.nombre_categoria}}</a>
         </div>
         <div>
             <br>
-            <a class="btn btn-info btn-block btn-danger">
+            <a class="btn btn-info btn-block btn-danger" (click)="delete()">
                 Confirmar
             </a>
         </div>
