@@ -11,6 +11,7 @@ import { CatalogoPrincipalComponent } from './componentes/catalogo-principal/cat
 import { ProductoComponent } from './componentes/producto/producto.component';
 import { NavigationComponent } from './componentes/navigation/navigation.component';
 import { CategoriaComponent } from './componentes/categoria/categoria.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CategoriaComponent } from './componentes/categoria/categoria.component'
     CatalogoPrincipalComponent,
     ProductoComponent,
     NavigationComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
