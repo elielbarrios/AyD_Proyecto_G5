@@ -135,6 +135,59 @@ describe("Category resources", () => {
     });
 
 
+
+
+    //Usuarios
+/*
+    var server;
+    var newEntityID3;
+    var newEntity3 = {nombre_usuario:"Prueba", password_usuario: "1234"};
+    beforeAll(()=>
+    {
+        server =  require("../build/index");
+    });
+
+    afterAll(()=>
+    {
+        server.close();
+    });
+
+    it("GET /users - statusCode", (done) => 
+    {
+         //var data = {};
+         Request.get("http://localhost:3000/api/users", (error, response, body) => {
+             expect(response.statusCode).toBe(200);
+             done();
+         })
+    });
+    
+    it("GET /users - content type", (done) => 
+    {
+        Request.get("http://localhost:3000/api/users", (error, response, body) => {
+            expect(response.headers["content-type"]).toBe("application/json; charset=utf-8");
+            done();
+        })
+    });
+
+    it("GET /user/:id - especific object", (done) => 
+    {
+        Request.get("http://localhost:3000/api/user/"+newEntityID3, (error, response, body) => {
+            expect(response.body).toBe([{nombre_usuario:"NombreUsuario", password_usuario:"0000"}]);
+            done();
+        })
+    });
+
+    it("POST /newuser - status code", (done) => 
+    {
+        Request.post("http://localhost:3000/api/newuser", {form:newEntity3} , (error, response, body) => {
+            newEntityID3 = response.body.insertId3;
+            console.log("POST /newuser - status code -> "+newEntityID3);
+            expect(response.statusCode).toBe(200);
+            done();
+        })
+
+    });*/
+
 });
 
 
