@@ -62,13 +62,11 @@ describe("Category resources", () => {
         })
 
     });
-});
 
-
-describe("Product resources", () => {
+    //Productos
     var server;
-    var newEntityID;
-    var newEntity = {descripcion: "NuevoProducto", nombre:"NombreProducto", imagen:"Path", precio: 22.50};
+    var newEntityID2;
+    var newEntity2 = {descripcion: "NuevoProducto", nombre:"NombreProducto", imagen:"Path", precio: 22.50};
     beforeAll(()=>
     {
         server =  require("../build/index");
@@ -99,9 +97,9 @@ describe("Product resources", () => {
 
     it("POST /products - status code", (done) => 
     {
-        Request.post("http://localhost:3000/api/products", {form:newEntity} , (error, response, body) => {
-            newEntityID = response.body.insertId;
-            console.log("POST /products - status code -> "+newEntityID);
+        Request.post("http://localhost:3000/api/products", {form:newEntity2} , (error, response, body) => {
+            newEntityID2 = response.body.insertId;
+            console.log("POST /products - status code -> "+newEntityID2);
             expect(response.statusCode).toBe(200);
             done();
         })
@@ -109,33 +107,35 @@ describe("Product resources", () => {
     });
 
 
+    /*it("GET /products/:id - especific object", (done) => 
+    {
+        Request.get("http://localhost:3000/api/products/"+newEntityID2, (error, response, body) => {
+            expect(response.body).toBe([newEntity2]);
+            done();
+        })
+    });*/
+    
     it("PUT /products/:id - especific object", (done) => 
     {
-        Request.put("http://localhost:3000/api/products/"+newEntityID, {form: {descripcion: "NuevoProductoEditted", nombre:"NombreProducto", imagen:"Path", precio: 22.50}} ,(error, response, body) => {
+        Request.put("http://localhost:3000/api/products/"+newEntityID2, {form: {descripcion: "NuevoProductoEditted", nombre:"NombreProducto", imagen:"Path", precio: 22.50}} ,(error, response, body) => {
             expect(response.statusCode).toBe(200);
             done();
         })
 
-    });
-
-    it("GET /products/:id - especific object", (done) => 
-    {
-        Request.get("http://localhost:3000/api/products/"+newEntityID, (error, response, body) => {
-            expect(response.body).toBe([{descripcion: "NuevoProductoEditted", nombre:"NombreProducto", imagen:"Path", precio: 22.50}]);
-            done();
-        })
     });
 
     it("DELETE /products/:id - especific object", (done) => 
     {
-        Request.delete("http://localhost:3000/api/products/"+newEntityID , (error, response, body) => {
-            newEntityID = response.body.insertId;
+        Request.delete("http://localhost:3000/api/products/"+newEntityID2 , (error, response, body) => {
+            newEntityID2 = response.body.insertId;
             expect(response.statusCode).toBe(200);
             done();
         })
 
     });
 
+
 });
+
 
 
