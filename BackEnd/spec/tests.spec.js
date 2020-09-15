@@ -137,3 +137,5 @@ describe("Product resources", () => {
     });
 
 });
+
+
