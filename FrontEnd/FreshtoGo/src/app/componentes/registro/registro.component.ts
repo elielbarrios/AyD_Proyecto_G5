@@ -9,9 +9,21 @@ export class RegistroComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
+  nombre:string ="";
+  apellido:string ="";
+  email:string ="";
+  password:string ="";
+  celular:string ="";
+  nit:string ="";
+  status:number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  registrar(){
+
   }
 
 }
