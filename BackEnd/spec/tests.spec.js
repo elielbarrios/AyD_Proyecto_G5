@@ -64,17 +64,17 @@ describe("Category resources", () => {
     });
 
     //Productos
-    var server;
+    var server2;
     var newEntityID2;
     var newEntity2 = {descripcion: "NuevoProducto", nombre:"NombreProducto", imagen:"Path", precio: 22.50};
     beforeAll(()=>
     {
-        server =  require("../build/index");
+        server2 =  require("../build/index");
     });
 
     afterAll(()=>
     {
-        server.close();
+        server2.close();
     });
 
     it("GET /products - statusCode", (done) => 
@@ -138,18 +138,18 @@ describe("Category resources", () => {
 
 
     //Usuarios
-/*
-    var server;
+
+    var server3;
     var newEntityID3;
     var newEntity3 = {nombre_usuario:"Prueba", password_usuario: "1234"};
     beforeAll(()=>
     {
-        server =  require("../build/index");
+        server3 =  require("../build/index");
     });
 
     afterAll(()=>
     {
-        server.close();
+        server3.close();
     });
 
     it("GET /users - statusCode", (done) => 
@@ -186,7 +186,7 @@ describe("Category resources", () => {
             done();
         })
 
-    });*/
+    });
 
 });
 

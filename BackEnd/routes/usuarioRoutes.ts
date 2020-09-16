@@ -1,5 +1,5 @@
 import {Router} from 'express';
-//import {usuarioController} from '../controllers/usuarioController'
+import { usuarioController } from '../controllers/usuarioController';
 
 
 class UsuarioRoutes
@@ -14,9 +14,10 @@ class UsuarioRoutes
 
     config() : void
     {
-        /*this.router.get('/users',usuarioController.getUsers);
-        this.router.get('/user/:id', usuacrioController.getUser);
-        this.router.post('/newuser',usuarioController.addUser);*/
+        this.router.get('/users',usuarioController.getUsers);
+        this.router.get('/user/:id', usuarioController.getUser);
+        this.router.post('/newuser',usuarioController.addUser);
+        this.router.get('/login/:id',usuarioController.Login);
     }
 }
 const userRoutes = new UsuarioRoutes();
