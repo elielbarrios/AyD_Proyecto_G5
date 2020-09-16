@@ -62,13 +62,11 @@ describe("Category resources", () => {
         })
 
     });
-});
 
-
-describe("Product resources", () => {
+    //Productos
     var server;
-    var newEntityID;
-    var newEntity = {descripcion: "NuevoProducto", nombre:"NombreProducto", imagen:"Path", precio: 22.50};
+    var newEntityID2;
+    var newEntity2 = {descripcion: "NuevoProducto", nombre:"NombreProducto", imagen:"Path", precio: 22.50};
     beforeAll(()=>
     {
         server =  require("../build/index");
@@ -99,9 +97,9 @@ describe("Product resources", () => {
 
     it("POST /products - status code", (done) => 
     {
-        Request.post("http://localhost:3000/api/products", {form:newEntity} , (error, response, body) => {
-            newEntityID = response.body.insertId;
-            console.log("POST /products - status code -> "+newEntityID);
+        Request.post("http://localhost:3000/api/products", {form:newEntity2} , (error, response, body) => {
+            newEntityID2 = response.body.insertId;
+            console.log("POST /products - status code -> "+newEntityID2);
             expect(response.statusCode).toBe(200);
             done();
         })
@@ -109,31 +107,88 @@ describe("Product resources", () => {
     });
 
 
+    /*it("GET /products/:id - especific object", (done) => 
+    {
+        Request.get("http://localhost:3000/api/products/"+newEntityID2, (error, response, body) => {
+            expect(response.body).toBe([newEntity2]);
+            done();
+        })
+    });*/
+    
     it("PUT /products/:id - especific object", (done) => 
     {
-        Request.put("http://localhost:3000/api/products/"+newEntityID, {form: {descripcion: "NuevoProductoEditted", nombre:"NombreProducto", imagen:"Path", precio: 22.50}} ,(error, response, body) => {
+        Request.put("http://localhost:3000/api/products/"+newEntityID2, {form: {descripcion: "NuevoProductoEditted", nombre:"NombreProducto", imagen:"Path", precio: 22.50}} ,(error, response, body) => {
             expect(response.statusCode).toBe(200);
             done();
         })
 
-    });
-
-    it("GET /products/:id - especific object", (done) => 
-    {
-        Request.get("http://localhost:3000/api/products/"+newEntityID, (error, response, body) => {
-            expect(response.body).toBe([{descripcion: "NuevoProductoEditted", nombre:"NombreProducto", imagen:"Path", precio: 22.50}]);
-            done();
-        })
     });
 
     it("DELETE /products/:id - especific object", (done) => 
     {
-        Request.delete("http://localhost:3000/api/products/"+newEntityID , (error, response, body) => {
-            newEntityID = response.body.insertId;
+        Request.delete("http://localhost:3000/api/products/"+newEntityID2 , (error, response, body) => {
+            newEntityID2 = response.body.insertId;
             expect(response.statusCode).toBe(200);
             done();
         })
 
     });
 
+
+
+
+    //Usuarios
+/*
+    var server;
+    var newEntityID3;
+    var newEntity3 = {nombre_usuario:"Prueba", password_usuario: "1234"};
+    beforeAll(()=>
+    {
+        server =  require("../build/index");
+    });
+
+    afterAll(()=>
+    {
+        server.close();
+    });
+
+    it("GET /users - statusCode", (done) => 
+    {
+         //var data = {};
+         Request.get("http://localhost:3000/api/users", (error, response, body) => {
+             expect(response.statusCode).toBe(200);
+             done();
+         })
+    });
+    
+    it("GET /users - content type", (done) => 
+    {
+        Request.get("http://localhost:3000/api/users", (error, response, body) => {
+            expect(response.headers["content-type"]).toBe("application/json; charset=utf-8");
+            done();
+        })
+    });
+
+    it("GET /user/:id - especific object", (done) => 
+    {
+        Request.get("http://localhost:3000/api/user/"+newEntityID3, (error, response, body) => {
+            expect(response.body).toBe([{nombre_usuario:"NombreUsuario", password_usuario:"0000"}]);
+            done();
+        })
+    });
+
+    it("POST /newuser - status code", (done) => 
+    {
+        Request.post("http://localhost:3000/api/newuser", {form:newEntity3} , (error, response, body) => {
+            newEntityID3 = response.body.insertId3;
+            console.log("POST /newuser - status code -> "+newEntityID3);
+            expect(response.statusCode).toBe(200);
+            done();
+        })
+
+    });*/
+
 });
+
+
+
