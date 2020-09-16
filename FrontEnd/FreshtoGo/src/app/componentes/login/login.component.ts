@@ -9,9 +9,21 @@ export class LoginComponent implements OnInit {
 
   @HostBinding('class') classes = 'row';
 
+  user:string = "";
+  password:string = "";
+  status:number = 0;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  iniciarSesion(){
+
+  }
+
+  registrarse(){
+
   }
 
 }
