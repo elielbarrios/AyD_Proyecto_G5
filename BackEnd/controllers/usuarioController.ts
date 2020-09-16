@@ -18,7 +18,17 @@ class UserController
 
     async Login(req : Request, res : Response) : Promise<void> //inicio de sesion  
     {
-       
+        const { email, password} = req.body;
+        const query = await db.query('SELECT * FROM usuario WHERE email=:email and password=:password',[email,password]);
+        console.log(query.rows);
+         
+        if(query.rows?.length == 1){
+            console.log('Acceso correcto');
+            res.status(200).json(query.rows);
+        }else{
+            console.log('Acceso denegado'); 
+            res.status(404).json({Acceso: "Denegado"});
+        }
     }
 
     async addUser(req : Request, res : Response) : Promise<void> ///agregar un nuevo usuario -> registro 
