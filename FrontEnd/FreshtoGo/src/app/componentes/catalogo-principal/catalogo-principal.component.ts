@@ -75,4 +75,13 @@ export class CatalogoPrincipalComponent implements OnInit
         this.router.navigate(['/carrito']);
     }
 
+    /**
+     * MEtodos sprint 3
+     */
+
+    public showOneProduct ()
+    {
+
+    }
+
 }

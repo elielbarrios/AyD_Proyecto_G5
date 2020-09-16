@@ -55,4 +55,19 @@ describe('Test for CatalogoPrincipalComponent', () => {
     });
   });
 
+  /**
+   * Pruebas unitarias Sprint 3
+   */
+  
+  describe('Test for Filtrar Catalogo -> buscarUnProducto', () => 
+  {
+      it('should change the global var productList', () => 
+      {
+            let var_productList = component.productList;
+            component.showOneProduct();
+            expect(var_productList).not.toEqual(component.productList);
+      });
+  });
+
+
 });
