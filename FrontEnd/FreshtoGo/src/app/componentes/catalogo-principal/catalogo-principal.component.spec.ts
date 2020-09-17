@@ -70,5 +70,17 @@ describe('Test for CatalogoPrincipalComponent', () => {
       });
   });
 
+  describe('Test for Filtrar Catalogo -> mostrar ordenados alfabeticamente', () => 
+  {
+      it('should change the global var productList', () => 
+      {
+            let var_productList = component.productList;
+
+            component.ShowProduct_ordenadoAlfabet();
+            
+            expect(var_productList).not.toEqual(component.productList);
+      });
+  });
+
 
 });

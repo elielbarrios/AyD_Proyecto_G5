@@ -93,4 +93,9 @@ export class CatalogoPrincipalComponent implements OnInit
         (err)=>{});
     }
 
+    public ShowProduct_ordenadoAlfabet ()
+    {
+        //
+    }
+
 }

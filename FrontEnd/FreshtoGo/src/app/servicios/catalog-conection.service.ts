@@ -24,4 +24,20 @@ export class CatalogConectionService
         return this.http.post(ip + '/products', retorno); 
     }
 
+    public getProductosOrdenados_Alfabeticamente () 
+    {
+        return this.http.get('http://52.15.119.221:3000/api/products'); 
+    }
+
+    public getProductosOrdenados_PorPrecios () 
+    {
+        return this.http.get('http://52.15.119.221:3000/api/products'); 
+    }
+
+    public getProductosOrdenados_PorCategoria () 
+    {
+        return this.http.get('http://52.15.119.221:3000/api/products'); 
+    }
+
+
 }
