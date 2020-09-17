@@ -17,12 +17,17 @@ export class CatalogoPrincipalComponent implements OnInit
     public carrito: Array<carrito>;
     public carritoAux: any;
     public productList:any;
+    public producto:Producto = {
+        id_producto:0,
+        descripcion:"",
+        nombre:"",
+        imagen:"",
+        precio:0
+      }
     // ------------ //
 
     constructor (private catalogo:CatalogConectionService, private router: Router) 
     { 
-      
-      
         if (JSON.parse(localStorage.getItem('currentUser')) != null) 
         {
             this.carrito = JSON.parse(localStorage.getItem('currentUser'));
@@ -81,7 +86,11 @@ export class CatalogoPrincipalComponent implements OnInit
 
     public showOneProduct ()
     {
-
+        this.catalogo.getProductos_id(this.producto).subscribe((res)=>{
+            console.log('Respuesta Node',res);
+            this.productList = res;
+        },
+        (err)=>{});
     }
 
 }
