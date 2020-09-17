@@ -95,7 +95,11 @@ export class CatalogoPrincipalComponent implements OnInit
 
     public ShowProduct_ordenadoAlfabet ()
     {
-        //
+        this.catalogo.getProductosOrdenados_Alfabeticamente().subscribe((res)=>{
+            console.log('Respuesta Node',res);
+            this.productList = res;
+        },
+        (err)=>{});
     }
 
 }
