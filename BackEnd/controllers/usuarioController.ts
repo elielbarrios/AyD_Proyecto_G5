@@ -12,9 +12,8 @@ class UserController
 
     async getUser(req : Request, res : Response) : Promise<void> //obtener la informacion de un usuario en especifico
     {
-        const {email} = req.body;
-        const query = await db.query('SELECT * FROM usuario Where email=:email',[email]);
-        console.log(query.rows);
+        const retVal = await db.query('SELECT * FROM usuario Where id_usuario=?',[req.params.id]);
+        console.log(retVal);
     }
     
 
