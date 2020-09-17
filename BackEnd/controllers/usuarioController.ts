@@ -12,7 +12,9 @@ class UserController
 
     async getUser(req : Request, res : Response) : Promise<void> //obtener la informacion de un usuario en especifico
     {
-        
+        const {email} = req.body;
+        const query = await db.query('SELECT * FROM usuario Where email=:email',[email]);
+        console.log(query.rows);
     }
     
 
@@ -33,7 +35,8 @@ class UserController
 
     async addUser(req : Request, res : Response) : Promise<void> ///agregar un nuevo usuario -> registro 
     {
-       
+        const retVal = await db.query('INSERT INTO usuario set ?', [req.body])
+        res.json(retVal);
     }
     
 
