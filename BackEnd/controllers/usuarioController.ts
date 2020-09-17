@@ -21,7 +21,7 @@ class UserController
        
     }
 
-    async addUser(req : Request, res : Response) : Promise<void> ///agregar un nuevo usuario -> registro 
+    async addUser(req : Request, res : Response) : Promise<void> ///agregar un nuevo usuario -> registro
     {
        
     }
