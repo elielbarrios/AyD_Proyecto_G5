@@ -39,6 +39,21 @@ class ProductController
         const retVal = await db.query('DELETE FROM producto'); //valor a retornar
         res.status(200).json(retVal);
     }
+    async getProductAlfa(req : Request, res : Response ) : Promise<void> //listar todos los productos
+    {
+        const retVal = await db.query('SELECT * FROM producto order by nombre ASC', [req.body]); ///valor a retornar
+        res.json(retVal);
+    }
+    async getProductPrecio(req : Request, res : Response ) : Promise<void> //listar todos los productos
+    {
+        const retVal = await db.query('SELECT * FROM producto ORDER BY precio ASC', [req.body]); ///valor a retornar
+        res.json(retVal);
+    }
+    async getProductCategoria(req : Request, res : Response ) : Promise<void> //listar todos los productos
+    {
+        const retVal = await db.query('select p.descripcion,p.nombre,p.imagen,p.precio,c.nombre_categoria from detalle_producto_categoria d inner join producto p on (d.fk_id_producto = p.id_producto) inner join categoria c on (d.fk_id_categoria = c.id_categoria) order by c.nombre_categoria ASC;', [req.body]); ///valor a retornar
+        res.json(retVal);
+    }
 
     
 
