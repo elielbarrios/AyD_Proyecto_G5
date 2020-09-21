@@ -23,9 +23,9 @@ class UserController
         const query = await db.query('SELECT * FROM usuario WHERE email=:email and password=:password',[email,password]);
         console.log(query.rows);
          
-        if(query.rows?.length == 1){
+        if(query.length == 1){
             console.log('Acceso correcto');
-            res.status(200).json(query.rows);
+            res.status(200).json(query[0]);
         }else{
             console.log('Acceso denegado'); 
             res.status(404).json({Acceso: "Denegado"});
