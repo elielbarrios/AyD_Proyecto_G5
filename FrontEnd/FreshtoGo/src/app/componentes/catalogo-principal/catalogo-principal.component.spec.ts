@@ -57,7 +57,7 @@ fdescribe('Test for CatalogoPrincipalComponent', () => {
 
   /**
    * Pruebas unitarias Sprint 3
-   * TDD filtro de catalgo - se agrego pruebas unitarias para metodo de seleccion de un solo producto
+   * TDD filtro de catalgo - se agrego codigo funcional para metodo de mostrar productos ordenados por orden alfabetico
    */
   
   describe('Test for Filtrar Catalogo -> buscarUnProducto', () => 

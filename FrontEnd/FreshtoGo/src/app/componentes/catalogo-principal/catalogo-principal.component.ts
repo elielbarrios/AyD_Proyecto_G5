@@ -106,7 +106,12 @@ export class CatalogoPrincipalComponent implements OnInit
 
     public ShowProduct_ordenadoPorPrecios ()
     {
-        
+        this.productList = [{nombre:"vacio"}];
+        this.catalogo.getProductosOrdenados_PorPrecios().subscribe((res)=>{
+            console.log('Respuesta Node',res);
+            this.productList = res;
+        },
+        (err)=>{});
     }
 
 }
