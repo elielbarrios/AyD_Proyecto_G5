@@ -82,7 +82,7 @@ fdescribe('Test for CatalogoPrincipalComponent', () => {
       });
   });
 
-  describe('Test for Filtrar Catalogo -> mostrar ordenados por crecios', () => 
+  describe('Test for Filtrar Catalogo -> mostrar ordenados por precios', () => 
   {
       it('should change the global var productList', () => 
       {
@@ -90,6 +90,16 @@ fdescribe('Test for CatalogoPrincipalComponent', () => {
 
             component.ShowProduct_ordenadoPorPrecios();
             
+            expect(var_productList).not.toEqual(component.productList);
+      });
+  });
+
+  describe('Test for Filtrar Catalogo -> mostrar ordenados por categoria', () => 
+  {
+      it('should change the global var productList', () => 
+      {
+            let var_productList = component.productList;
+            component.ShowProduct_ordenadoPorCategoria();
             expect(var_productList).not.toEqual(component.productList);
       });
   });
