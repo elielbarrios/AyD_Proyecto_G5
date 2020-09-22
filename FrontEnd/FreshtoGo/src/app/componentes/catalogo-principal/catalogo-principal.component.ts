@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router"
 import { Producto } from 'src/app/modelos/producto';
+import { producto_unico } from 'src/app/modelos/producto_unico';
 import { carrito } from 'src/app/modelos/carrito';
 import { CatalogConectionService } from 'src/app/servicios/catalog-conection.service';
 
@@ -16,7 +17,7 @@ export class CatalogoPrincipalComponent implements OnInit
     */
     public carrito: Array<carrito>;
     public carritoAux: any;
-    public productList:any;
+    public productList:any = [{id:0},{id:1},{id:2}];
     public producto:Producto = {
         id_producto:0,
         descripcion:"",
@@ -95,11 +96,17 @@ export class CatalogoPrincipalComponent implements OnInit
 
     public ShowProduct_ordenadoAlfabet ()
     {
+        this.productList = [{nombre:"vacio"}];
         this.catalogo.getProductosOrdenados_Alfabeticamente().subscribe((res)=>{
             console.log('Respuesta Node',res);
             this.productList = res;
         },
         (err)=>{});
+    }
+
+    public ShowProduct_ordenadoPorPrecios ()
+    {
+        
     }
 
 }

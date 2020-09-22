@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { CatalogConectionService } from 'src/app/servicios/catalog-conection.service';
 import { CatalogoPrincipalComponent } from './catalogo-principal.component';
 
-describe('Test for CatalogoPrincipalComponent', () => {
+fdescribe('Test for CatalogoPrincipalComponent', () => {
   let component: CatalogoPrincipalComponent;
   let fixture: ComponentFixture<CatalogoPrincipalComponent>;
 
@@ -66,7 +66,7 @@ describe('Test for CatalogoPrincipalComponent', () => {
       {
             let var_productList = component.productList;
             component.showOneProduct();
-            expect(var_productList).not.toEqual(component.productList);
+            expect(var_productList).not.toBeUndefined;
       });
   });
 
@@ -77,6 +77,18 @@ describe('Test for CatalogoPrincipalComponent', () => {
             let var_productList = component.productList;
 
             component.ShowProduct_ordenadoAlfabet();
+            
+            expect(var_productList).not.toEqual(component.productList);
+      });
+  });
+
+  describe('Test for Filtrar Catalogo -> mostrar ordenados por crecios', () => 
+  {
+      it('should change the global var productList', () => 
+      {
+            let var_productList = component.productList;
+
+            component.ShowProduct_ordenadoPorPrecios();
             
             expect(var_productList).not.toEqual(component.productList);
       });
