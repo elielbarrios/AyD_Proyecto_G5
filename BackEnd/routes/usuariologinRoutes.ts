@@ -15,8 +15,8 @@ class UsuarioRoutes
     config() : void
     {
         this.router.get('/users',usuarioController.getUsers);
-        this.router.get('/user/:id', usuarioController.getUser);
-        this.router.get('/login/:id',usuarioController.Login);
+        this.router.get('/users/:id', usuarioController.getUser);
+        this.router.post('/users/login/',usuarioController.Login);
     }
 }
 const userRoutes = new UsuarioRoutes();

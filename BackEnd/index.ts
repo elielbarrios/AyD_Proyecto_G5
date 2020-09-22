@@ -1,6 +1,7 @@
 import express, {Application} from 'express';
 import productRoutes from './routes/productRoutes';
 import categoryRoutes from './routes/categoryRoutes';
+import userRoutes from './routes/userRoutes';
 import cors from 'cors';
 
 class Server
@@ -26,6 +27,7 @@ class Server
     {
         this.app.use('/api/',productRoutes);
         this.app.use('/api/',categoryRoutes);
+        this.app.use('/api/',userRoutes);
     }
 
     listen() : void

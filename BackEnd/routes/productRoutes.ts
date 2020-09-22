@@ -22,5 +22,5 @@ class ProductRoutes
         this.router.put('/products/:id',productController.updateProduct);
     }
 }
-const categoriesRoutes = new ProductRoutes();
-export default categoriesRoutes.router;
+const productRoutes = new ProductRoutes();
+export default productRoutes.router;
