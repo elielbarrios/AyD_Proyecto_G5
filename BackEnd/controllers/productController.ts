@@ -12,7 +12,7 @@ class ProductController
 
     async getProduct(req : Request, res : Response) : Promise<void> //obtener la informacion de un producto en especifico
     {
-        const retVal = await db.query('SELECT * FROM producto WHERE id_producto = ?', [req.params.id]);//valor a retornar
+        const retVal = await db.query('SELECT * FROM producto WHERE nombre = ?', [req.params.id]);//valor a retornar
         res.json(retVal);
     }
     
