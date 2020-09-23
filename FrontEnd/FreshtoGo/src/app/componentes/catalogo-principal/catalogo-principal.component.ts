@@ -17,7 +17,7 @@ export class CatalogoPrincipalComponent implements OnInit
     */
     public carrito: Array<carrito>;
     public carritoAux: any;
-    public productList:any = [{id:0},{id:1},{id:2}];
+    public productList:any;
     public producto:Producto = {
         id_producto:0,
         descripcion:"",

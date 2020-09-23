@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { CatalogConectionService } from 'src/app/servicios/catalog-conection.service';
 import { CatalogoPrincipalComponent } from './catalogo-principal.component';
 
-fdescribe('Test for CatalogoPrincipalComponent', () => {
+describe('Test for CatalogoPrincipalComponent', () => {
   let component: CatalogoPrincipalComponent;
   let fixture: ComponentFixture<CatalogoPrincipalComponent>;
 
