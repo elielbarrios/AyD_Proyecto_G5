@@ -6,7 +6,7 @@ import { Categoria } from 'src/app/modelos/categoria';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ServicioCarritoService } from 'src/app/servicios/servicio-carrito.service';
 
-fdescribe('CategoriaComponent', () => {
+describe('CategoriaComponent', () => {
   let component: CategoriaComponent;
   let fixture: ComponentFixture<CategoriaComponent>;
 
@@ -64,7 +64,7 @@ fdescribe('CategoriaComponent', () => {
   describe('Test for Producto -> delete()',() => 
   {
       it('Should use the service to send a delete instruction',() => {
-        component.delete(1);
+        component.delete();
         expect(component.selected).toEqual("");
       });
   });

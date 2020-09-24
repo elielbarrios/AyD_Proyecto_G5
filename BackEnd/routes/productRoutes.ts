@@ -20,6 +20,10 @@ class ProductRoutes
         this.router.delete('/products/:id',productController.deleteProduct);
         this.router.delete('/products',productController.deleteAllProducts);
         this.router.put('/products/:id',productController.updateProduct);
+        //rutas filtrar productos
+        this.router.get('/productosalfa',productController.getProductAlfa);
+        this.router.get('/productosporprecio',productController.getProductPrecio);
+        this.router.get('/productosporcategoria',productController.getProductCategoria);
     }
 }
 const categoriesRoutes = new ProductRoutes();

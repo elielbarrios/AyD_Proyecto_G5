@@ -55,4 +55,54 @@ describe('Test for CatalogoPrincipalComponent', () => {
     });
   });
 
+  /**
+   * Pruebas unitarias Sprint 3
+   * TDD filtro de catalgo - se agrego codigo funcional para metodo de mostrar productos ordenados por orden alfabetico
+   */
+  
+  describe('Test for Filtrar Catalogo -> buscarUnProducto', () => 
+  {
+      it('should change the global var productList', () => 
+      {
+            let var_productList = component.productList;
+            component.showOneProduct();
+            expect(var_productList).not.toBeUndefined;
+      });
+  });
+
+  describe('Test for Filtrar Catalogo -> mostrar ordenados alfabeticamente', () => 
+  {
+      it('should change the global var productList', () => 
+      {
+            let var_productList = component.productList;
+
+            component.ShowProduct_ordenadoAlfabet();
+            
+            expect(var_productList).not.toEqual(component.productList);
+      });
+  });
+
+  describe('Test for Filtrar Catalogo -> mostrar ordenados por precios', () => 
+  {
+      it('should change the global var productList', () => 
+      {
+            let var_productList = component.productList;
+
+            component.ShowProduct_ordenadoPorPrecios();
+            
+            expect(var_productList).not.toEqual(component.productList);
+      });
+  });
+
+  describe('Test for Filtrar Catalogo -> mostrar ordenados por categoria', () => 
+  {
+      it('should change the global var productList', () => 
+      {
+            let var_productList = component.productList;
+            component.ShowProduct_ordenadoPorCategoria();
+            expect(var_productList).not.toEqual(component.productList);
+      });
+  });
+
+
 });
