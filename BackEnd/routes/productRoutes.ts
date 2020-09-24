@@ -26,5 +26,5 @@ class ProductRoutes
         this.router.get('/productosporcategoria',productController.getProductCategoria);
     }
 }
-const categoriesRoutes = new ProductRoutes();
-export default categoriesRoutes.router;
+const productRoutes = new ProductRoutes();
+export default productRoutes.router;
