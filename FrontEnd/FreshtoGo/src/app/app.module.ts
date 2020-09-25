@@ -13,6 +13,7 @@ import { NavigationComponent } from './componentes/navigation/navigation.compone
 import { CategoriaComponent } from './componentes/categoria/categoria.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { MetodospagoComponent } from './componentes/metodospago/metodospago.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     NavigationComponent,
     CategoriaComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    MetodospagoComponent
   ],
   imports: [
     BrowserModule,
