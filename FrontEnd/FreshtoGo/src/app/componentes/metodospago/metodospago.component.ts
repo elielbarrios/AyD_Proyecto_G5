@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-metodospago',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./metodospago.component.css']
 })
 export class MetodospagoComponent implements OnInit {
+
+  productList:any;
 
   constructor() { }
 

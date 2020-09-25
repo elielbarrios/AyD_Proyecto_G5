@@ -1,1 +1,31 @@
-<p>metodospago works!</p>
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Descripcion</th>
+              <th scope="col">Agregar</th>
+          </thead>
+        <tbody>
+            <tr *ngFor="let item of productList">
+                <td>
+                    {{item.nombre}} <br>
+                    Descripcion:  {{item.descripcion}}  <br>
+                    Precio:  {{item.precio}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="custom-control custom-radio">
+        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio1">Tarjeta Credito</label>
+    </div>
+    <div class="custom-control custom-radio">
+        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+        <label class="custom-control-label" for="customRadio2">Pago contra entrega</label>
+    </div>
+    <button class="btn-success">
+        Confirmar Compra
+    </button>
+</div>
