@@ -27,22 +27,35 @@ precio DOUBLE
 );
 
 
+CREATE TABLE orden (
+id_orden INT PRIMARY KEY AUTO_INCREMENT,
+fecha DATE,
+fk_id_usuario INT,
+estado VARCHAR(50),
+monto INT,
+no_articulos INT,
+tipo_pago INT,
+FOREIGN KEY (fk_id_usuario) REFERENCES usuario(id_usuario)
+);
+
 CREATE TABLE orden_producto (
 id_orden_producto INT PRIMARY KEY AUTO_INCREMENT,
 fk_id_producto INT,
+fk_id_orden INT,
 cantidad INT,
-FOREIGN KEY (fk_id_producto) REFERENCES producto (id_producto)
+total INT,
+FOREIGN KEY (fk_id_producto) REFERENCES producto (id_producto),
+FOREIGN KEY (fk_id_orden) REFERENCES orden (id_orden)
 );
 
-CREATE TABLE orden (
-id_orden INT PRIMARY KEY AUTO_INCREMENT,
-fecha_orden DATE,
+CREATE TABLE tarjeta (
+id_tarjeta INT PRIMARY KEY auto_increment,
 fk_id_usuario INT,
-fk_id_ordenproducto INT,
-estado_orden VARCHAR(50),
-FOREIGN KEY (fk_id_usuario) REFERENCES usuario(id_usuario),
-FOREIGN KEY (fk_id_ordenproducto) REFERENCES orden_producto(id_orden_producto)
+fecha DATE,
+cvv INT,
+FOREIGN KEY (fk_id_usuario) REFERENCES usuario (id_usuario)
 );
+
 
 CREATE TABLE categoria (
 id_categoria INT PRIMARY KEY AUTO_INCREMENT,
