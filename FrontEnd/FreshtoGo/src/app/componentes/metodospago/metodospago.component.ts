@@ -16,4 +16,13 @@ export class MetodospagoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  validarProductos(productos):boolean{
+    return true;
+
+  }
+
+  validarTarjeta(tarjeta){
+    return true;
+  }
+
 }
