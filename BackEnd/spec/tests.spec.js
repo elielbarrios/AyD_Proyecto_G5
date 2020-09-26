@@ -1,6 +1,6 @@
 var Request = require("request");
 
-describe("Category resources", () => {
+describe("Pruebas unitarias", () => {
     var server;
     var newEntityID;
     var newEntity = {nombre_categoria:"Prueba", "root_id": 1};
@@ -188,6 +188,41 @@ describe("Category resources", () => {
 
     });
 
+    ///Inicio facturacion
+    describe("GIVEN: El usuario entra a sus detalles de facturacion", () => { 
+        var userid = 1;
+
+        describe("WHEN: Da click en visualizar detalles guardados", ()=>{
+
+            it("THEN: Retorna un status code 200 con sus detalles guardados", ()=>{
+                Request.get("http://localhost:3000/facturacion/detalles", (error, response, body) => {
+                    expect(response.statusCode).toBe(200);
+                    done();
+                })
+            });
+
+        });
+    
+    });
+
+    describe("GIVEN: El usuario entra a sus detalles de facturacion", () => { 
+        var userid = 1;
+
+        describe("WHEN: Da click en guardar nuevo metodo de pago", ()=>{
+            var metodoDePago = {userid: userid, fecha: '2020/08', cvv: 334};
+            it("THEN: Retorna un arreglo con todos sus metodos de pago guardados", ()=>{
+                Request.post("http://localhost:3000/facturacion/detalles", {form: metodoDePago}, (error, response, body) => {
+                    expect(response.body.length).ToBeGreaterThan(0);
+                    done();
+                })
+            });
+
+        });
+    
+    });
+
+
+    
 });
 
 
