@@ -9,6 +9,8 @@ export class MetodospagoComponent implements OnInit {
 
   productList:any;
 
+  confirmacion=false;
+  compracorrecta=false;
   constructor() { }
 
   ngOnInit(): void {

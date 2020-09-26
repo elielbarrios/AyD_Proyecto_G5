@@ -1,31 +1,76 @@
-<div>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-              <th scope="col"></th>
-              <th scope="col">Descripcion</th>
-              <th scope="col">Agregar</th>
-          </thead>
-        <tbody>
-            <tr *ngFor="let item of productList">
-                <td>
-                    {{item.nombre}} <br>
-                    Descripcion:  {{item.descripcion}}  <br>
-                    Precio:  {{item.precio}}
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container">
 
-    <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-        <label class="custom-control-label" for="customRadio1">Tarjeta Credito</label>
+    <div class="row">
+        <div class="col">
+            <div class="card-header bg-dark text-white"><h4>Lista de productos</h4></div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Descripcion</th>
+                      <th scope="col">Precio</th>
+                  </thead>
+                <tbody>
+                    <tr *ngFor="let item of productList">
+                        <td>
+                            {{item.nombre}} <br>
+                            Descripcion:  {{item.descripcion}}  <br>
+                            Precio:  {{item.precio}}
+                        </td>
+                    </tr>
+                </tbody>
+                <button class="btn btn-primary">
+                    Aceptar
+                </button>
+            </table> 
+        </div>   
     </div>
-    <div class="custom-control custom-radio">
-        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-        <label class="custom-control-label" for="customRadio2">Pago contra entrega</label>
+  
+
+
+
+    <div class="col" >
+        <div class="card mb-3" style="max-width: 35rem;">
+            <div class="card-header bg-dark text-white"><h4>Tipo de pago</h4></div>
+            <div class="card-body ">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio1">Tarjeta Credito</label>
+                </div>
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadio2">Pago contra entrega</label>
+                </div>
+                <button class="btn btn-primary">
+                    Confirmar Compra
+                </button>
+            </div>
+        </div>
     </div>
-    <button class="btn-success">
-        Confirmar Compra
-    </button>
+
+
+
+
+    <div class="col" >
+        <div class="card mb-3" style="max-width: 35rem;">
+            <div class="card-header bg-dark text-white"><h4>Datos de tarjeta</h4></div>
+            <div class="card-body ">
+                <div class="form-group">
+                    <label for="newtarjeta"><b>No. Tarjeta Credito</b></label>
+                    <input type="text" class="form-control" id="newtarjeta"  >
+                </div>
+                <div class="form-group">
+                    <label for="fecha"><b>Fecha vencimiento</b></label>
+                    <input type="text" class="form-control" id="fecha" >
+                </div>
+            </div>
+        </div>
+    </div>
+        
+            
+            
+
+
+
+   
 </div>
