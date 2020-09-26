@@ -69,4 +69,26 @@ fdescribe('MetodospagoComponent', () => {
     });
   });
 
+  describe("Given: Dados los datos del usuario", function(){
+    
+    describe("When confirmamos que estén bien", function(){
+      beforeEach(function(){
+        let usuario:any = {
+          id_usurario:0,
+          nombre:"Usuario Prueba",
+          apellido:"Es prueba",
+          email:"prueba@prueba.com",
+          password:"1234",
+          celular:"50505050",
+          nit:"987654K"
+        } 
+      });
+      describe("Then se validan los datos del usuario", function(){
+        it("Muestra ", function(){
+          expect(component.validarDatos(this.usuario)).toEqual(true);
+        });
+      });
+    });
+  });
+
 });

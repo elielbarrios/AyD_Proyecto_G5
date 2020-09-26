@@ -25,4 +25,8 @@ export class MetodospagoComponent implements OnInit {
     return true;
   }
 
+  validarDatos(usuario){
+    return true;
+  }
+
 }
