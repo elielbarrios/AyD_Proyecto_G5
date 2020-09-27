@@ -13,6 +13,9 @@ import { NavigationComponent } from './componentes/navigation/navigation.compone
 import { CategoriaComponent } from './componentes/categoria/categoria.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
+import { MetodospagoComponent } from './componentes/metodospago/metodospago.component';
+
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -23,14 +26,22 @@ import { RegistroComponent } from './componentes/registro/registro.component';
     NavigationComponent,
     CategoriaComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    MetodospagoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true,
+    })
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
