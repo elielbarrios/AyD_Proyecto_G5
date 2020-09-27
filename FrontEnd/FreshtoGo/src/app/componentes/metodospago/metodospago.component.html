@@ -57,11 +57,11 @@
             <div class="card-body ">
                 <div class="form-group">
                     <label for="newtarjeta"><b>No. Tarjeta Credito</b></label>
-                    <input type="text" class="form-control" id="newtarjeta" [(ngModel)]="tarjeta.numero" >
+                    <input type="text" class="form-control" id="newtarjeta" [(ngModel)]="tarjeta.cvv" >
                 </div>
                 <div class="form-group">
                     <label for="fecha"><b>Fecha vencimiento</b></label>
-                    <input type="text" class="form-control" id="fecha" [(ngModel)]="tarjeta.fecha">
+                    <input type="date" min="2018-01-01" max="2020-12-31" id="fecha" [(ngModel)]="tarjeta.fecha">
                 </div>
                 <button class="btn btn-primary" (click)="validarDatos();" >
                     Confirmar 
@@ -76,11 +76,11 @@
             <div class="card-body ">
                 <div class="form-group">
                     <label for="newtarjeta"><b>Direccion de entrega</b></label>
-                    <input type="text" class="form-control" id="newtarjeta" [(ngModel)]="tarjeta.numero" >
+                    <input type="text" class="form-control" id="direccion" [(ngModel)]="datoscontraentrega.direccion">
                 </div>
                 <div class="form-group">
                     <label for="fecha"><b>Telefono de quien recibe</b></label>
-                    <input type="text" class="form-control" id="fecha" [(ngModel)]="tarjeta.fecha">
+                    <input type="text" class="form-control" id="telefono" [(ngModel)]="datoscontraentrega.celular">
                 </div>
                 <button class="btn btn-primary" (click)="enviarDatosentrega();" >
                     Confirmar 
@@ -89,7 +89,6 @@
         </div>
     </div>
         
-            
-            
+             
    
 </div>

@@ -6,24 +6,27 @@
         </div>
         <form action="">
             <div class="form-group">
-                <input type="text" name="nombre"  placeholder="Nombre" class="form-control" autofocus>
+                <input type="text" name="nombre"  placeholder="Nombre" class="form-control" autofocus [(ngModel)]="newUser.nombre" >
             </div>
             <div class="form-group">
-                <input type="text" name="apellido"  placeholder="Apellido" class="form-control" autofocus>
+                <input type="text" name="apellido"  placeholder="Apellido" class="form-control"  [(ngModel)]="newUser.apellido">
             </div>
             <div class="form-group">
-                <input type="email" name="email"  placeholder="Correo" class="form-control" autofocus>
+                <input type="email" name="email"  placeholder="Correo" class="form-control"  [(ngModel)]="newUser.email">
             </div>
             <div class="form-group">
-                <input type="password" name="password"  placeholder="Contraseña" class="form-control">
+                <input type="password" name="password"  placeholder="Contraseña" class="form-control"  [(ngModel)]="newUser.password">
             </div>
             <div class="form-group">
-                <input type="tel" name="nombre"  placeholder="Telefono" class="form-control" autofocus>
+                <input type="tel" name="telefono"  placeholder="Telefono" class="form-control"  [(ngModel)]="newUser.celular">
             </div>
             <div class="form-group">
-                <input type="text" name="nombre"  placeholder="Nit" class="form-control" autofocus>
+                <input type="text" name="nit"  placeholder="Nit" class="form-control"  [(ngModel)]="newUser.nit">
             </div>
-            <button class="btn btn-success btn-block">
+            <div class="form-group">
+                <input type="text" name="direccion"  placeholder="Direccion" class="form-control"  [(ngModel)]="newUser.direccion">
+            </div>
+            <button class="btn btn-success btn-block" (click)="registrar()">
                 Registrar
             </button>
         </form>

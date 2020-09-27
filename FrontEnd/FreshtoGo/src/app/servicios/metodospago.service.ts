@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http'
 })
 export class MetodospagoService {
 
-  API_URI = 'http://52.15.119.221:3000/api/metodospago';
+  API_URI = 'http://18.217.114.84:3000/api/facturacion';
 
   constructor(private http: HttpClient) { }
 
@@ -15,7 +15,13 @@ export class MetodospagoService {
   }
 
   agregarTarjeta(tarjeta:object){
-    return this.http.post(`${this.API_URI}`,tarjeta);
+    return this.http.post(`${this.API_URI}/detalles`,tarjeta);
   }
+
+  getmetodosdepago(){
+    return this.http.get(`${this.API_URI}/detalles`);
+  }
+
+  
 
 }

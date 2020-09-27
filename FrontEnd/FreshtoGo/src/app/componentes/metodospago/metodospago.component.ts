@@ -13,15 +13,15 @@ export class MetodospagoComponent implements OnInit {
   productList:any;
   user:any;
   tarjeta:any = {
-    id_usuario:"",
-    numero:"",
+    fk_id_usuario:"",
+    cvv:"",
     fecha:""
   }
 
   datoscontraentrega:any = {
     id_usuario:"",
     direccion:"",
-    telefono:""
+    celular:""
   }
 
   confirmacion=false;
@@ -35,7 +35,10 @@ export class MetodospagoComponent implements OnInit {
 
   ngOnInit(): void {
     this.productList = JSON.parse(localStorage.getItem('currentUser'));
-    this.user = JSON.parse(localStorage.getItem("user"));
+    //this.user = 1;
+    this.user = JSON.parse(localStorage.getItem("usuarioactual"));
+    this.datoscontraentrega.direccion = this.user.direccion;
+    this.datoscontraentrega.celular = this.user.celular;
   }
 
   validarProductos(productos?):boolean{
@@ -63,7 +66,8 @@ export class MetodospagoComponent implements OnInit {
   }
 
   validarDatos(usuario?){
-    this.tarjeta.id_usuario = this.user.id_usuario;
+    console.log(this.tarjeta);
+    this.tarjeta.fk_id_usuario = this.user.id_usuario ;
     if(this.tarjeta != null){
       this.pagoService.agregarTarjeta(this.tarjeta).subscribe(
         res=>{
@@ -77,18 +81,18 @@ export class MetodospagoComponent implements OnInit {
   }
 
   enviarDatosentrega(){
-    this.datoscontraentrega.id_usuario = this.user.id_usuario;
+    this.datoscontraentrega.id_usuario = this.user;
     if(this.datoscontraentrega != null){
       this.pagoService.agregarDatosCompra(this.datoscontraentrega).subscribe(
         res=>{
-          this.showSuccess("Datos para entrega agregados correctamente");
+          this.showSuccess("Datos para entrega agregados/modificados correctamente");
           return true;
         }
       )
     }else{
+      this.showError("No se agregaron los datos de entrega");
       return false;
     }
-
   }
 
   showError(msj:string) {
