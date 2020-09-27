@@ -16,9 +16,6 @@ class FacturacionController
         const retVal = await db.query('INSERT INTO Tarjeta set ?', [req.body])
         res.json(retVal);
     }
-
-    
-
 }
 
 export const facturacionController = new FacturacionController();

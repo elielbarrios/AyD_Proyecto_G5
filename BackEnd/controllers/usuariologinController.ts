@@ -20,7 +20,7 @@ class UserController
     async Login(req : Request, res : Response) : Promise<void> //inicio de sesion  
     {
         const { email, password} = req.body;
-        const query = await db.query('SELECT * FROM usuario WHERE email=:email and password=:password',[email,password]);
+        const query = await db.query('SELECT * FROM usuario WHERE email=? and password=?',[email,password]);
         console.log(query.rows);
          
         if(query.length == 1){
