@@ -13,11 +13,20 @@ export class MetodospagoComponent implements OnInit {
   productList:any;
   user:any;
   tarjeta:any = {
+    id_usuario:"",
     numero:"",
     fecha:""
   }
+
+  datoscontraentrega:any = {
+    id_usuario:"",
+    direccion:"",
+    telefono:""
+  }
+
   confirmacion=false;
-  metodoseleccionado=false;
+  tipotarjeta=false;
+  tipocontraentrega=false;
 
   metodopago:any = {
     tipo:""
@@ -26,6 +35,7 @@ export class MetodospagoComponent implements OnInit {
 
   ngOnInit(): void {
     this.productList = JSON.parse(localStorage.getItem('currentUser'));
+    this.user = JSON.parse(localStorage.getItem("user"));
   }
 
   validarProductos(productos?):boolean{
@@ -38,28 +48,47 @@ export class MetodospagoComponent implements OnInit {
     }
   }
 
-  validarTarjeta(tarjeta){
-    return true;
-  }
 
   validarMetodo(){
     console.log(this.metodopago.tipo)
     if(this.metodopago.tipo == "1"){
-      this.metodoseleccionado = true;
+      this.tipocontraentrega= true;
       this.showSuccess("Pago contra entrega seleccionado");
     }else if(this.metodopago.tipo == "2"){
-      this.metodoseleccionado = true;
+      this.tipotarjeta = true;
       this.showSuccess("Pago con tarjeta seleccionado");
     }else{
-      this.metodoseleccionado == false;
       this.showError("Seleccione una forma de pago");
     }
   }
 
   validarDatos(usuario?){
-    
-    this.showSuccess("Tarjeta agregada correctamente");
-    return true;
+    this.tarjeta.id_usuario = this.user.id_usuario;
+    if(this.tarjeta != null){
+      this.pagoService.agregarTarjeta(this.tarjeta).subscribe(
+        res=>{
+          this.showSuccess("Tarjeta agregada correctamente");
+          return true;
+        }
+      )
+    }else{
+      return false;
+    }
+  }
+
+  enviarDatosentrega(){
+    this.datoscontraentrega.id_usuario = this.user.id_usuario;
+    if(this.datoscontraentrega != null){
+      this.pagoService.agregarDatosCompra(this.datoscontraentrega).subscribe(
+        res=>{
+          this.showSuccess("Datos para entrega agregados correctamente");
+          return true;
+        }
+      )
+    }else{
+      return false;
+    }
+
   }
 
   showError(msj:string) {

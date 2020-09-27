@@ -10,8 +10,12 @@ export class MetodospagoService {
 
   constructor(private http: HttpClient) { }
 
-  agregarCompra(){
-    return this.http.get(`${this.API_URI}`);
+  agregarDatosCompra(datos:object){
+    return this.http.put(`${this.API_URI}`,datos);
+  }
+
+  agregarTarjeta(tarjeta:object){
+    return this.http.post(`${this.API_URI}`,tarjeta);
   }
 
 }

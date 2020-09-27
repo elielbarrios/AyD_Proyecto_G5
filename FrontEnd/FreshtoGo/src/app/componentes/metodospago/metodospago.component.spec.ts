@@ -62,7 +62,7 @@ fdescribe('MetodospagoComponent', () => {
       });
       describe("Then se validan los datos de la tarjeta de credito  ", function(){
         it("Muestra ", function(){
-          expect(component.validarTarjeta(this.tarjeta)).toEqual(true);
+          expect(component.validarDatos(this.tarjeta)).toEqual(true);
 
         });
       });
