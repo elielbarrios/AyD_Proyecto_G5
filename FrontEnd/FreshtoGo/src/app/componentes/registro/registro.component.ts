@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { ToastrService } from 'ngx-toastr';
+//import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../servicios/auth.service';
@@ -25,7 +25,7 @@ export class RegistroComponent implements OnInit {
     direccion:""
   }
 
-  constructor(private toastr:ToastrService, private router: Router, private location: Location, private authService: AuthService) { }
+  constructor(/*private toastr:ToastrService,*/ private router: Router, private location: Location, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -47,11 +47,11 @@ export class RegistroComponent implements OnInit {
   }
 
   showError(msj:string) {
-    this.toastr.error(msj);
+    //this.toastr.error(msj);
   }
 
   showSuccess(msj: string) {
-    this.toastr.success(msj);
+    //this.toastr.success(msj);
   }
 
 }

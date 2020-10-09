@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr'
+import {Router} from "@angular/router"
+//import { ToastrService } from 'ngx-toastr'
 import { MetodospagoService } from '../../servicios/metodospago.service';
 import * as jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -13,6 +14,11 @@ import html2canvas from 'html2canvas';
 export class MetodospagoComponent implements OnInit {
 
   productList:any;
+
+  productList_total:any = {
+    total:""
+  }
+  
   user:any;
   tarjeta:any = {
     fk_id_usuario:"",
@@ -33,15 +39,41 @@ export class MetodospagoComponent implements OnInit {
   metodopago:any = {
     tipo:""
   };
-  constructor(private toastr:ToastrService, private pagoService:MetodospagoService) { }
+  constructor(/*private toastr:ToastrService, */private pagoService:MetodospagoService, private router: Router) 
+  { 
+    
+    if (JSON.parse(localStorage.getItem('currentUser')) != null) 
+    {
+        this.productList = JSON.parse(localStorage.getItem('currentUser'));
+        // este segmento sirve para obtener el total de la compra
+        let total:number = 0;
+        for (let index = 0; index < this.productList.length; index++) {
+          const element = this.productList[index];
+          total = total + ( Number( element.Cantidad ) * Number( element.Precio ) );
+        }
+        this.productList_total.total  = String(total.toPrecision(4));
+        //-----------------------------------------------
 
-  ngOnInit(): void {
-    this.productList = JSON.parse(localStorage.getItem('currentUser'));
-    //this.user = 1;
-    this.user = JSON.parse(localStorage.getItem("usuarioactual"));
-    this.datoscontraentrega.direccion = this.user.direccion;
-    this.datoscontraentrega.celular = this.user.celular;
+        if (JSON.parse(localStorage.getItem('usuarioactual')) != null)
+        {
+            this.user = JSON.parse(localStorage.getItem("usuarioactual"));
+            this.datoscontraentrega.direccion = this.user.direccion;
+            this.datoscontraentrega.celular = this.user.celular;
+        }
+    }
+    else
+    {
+        this.productList = null;
+    }
+        
   }
+
+  ngOnInit(): void 
+  {
+   
+  }
+
+  
 
   validarProductos(productos?):boolean{
     if(this.productList != null){
@@ -98,16 +130,21 @@ export class MetodospagoComponent implements OnInit {
   }
 
   showError(msj:string) {
-    this.toastr.error(msj);
+    //this.toastr.error(msj);
+    alert(msj);
   }
 
   showSuccess(msj: string) {
-    this.toastr.success(msj);
+    //this.toastr.success(msj);
+    alert(msj);
   }
 
-  Facturar() 
+  
+
+  Facturar(): any
   {
-      //  
+
+
   }
 
 }

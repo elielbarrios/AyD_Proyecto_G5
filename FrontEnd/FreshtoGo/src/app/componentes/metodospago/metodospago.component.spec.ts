@@ -1,16 +1,27 @@
-import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { stringify } from '@angular/compiler/src/util';
+//import { analyzeAndValidateNgModules } from '@angular/compiler';
+//import { stringify } from '@angular/compiler/src/util';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import {RouterTestingModule} from '@angular/router/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {HttpClientModule} from '@angular/common/http';
+
+import { MetodospagoService } from '../../servicios/metodospago.service';
+import * as jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+
 
 import { MetodospagoComponent } from './metodospago.component';
 
-fdescribe('MetodospagoComponent', () => {
+fdescribe('Test for MetodospagoComponent', () => {  
   let component: MetodospagoComponent;
   let fixture: ComponentFixture<MetodospagoComponent>;
 
  
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      providers: [MetodospagoService],
       declarations: [ MetodospagoComponent ]
     })
     .compileComponents();
@@ -28,7 +39,6 @@ fdescribe('MetodospagoComponent', () => {
 
 
   //Unit test BDD
-
  
 
   describe("Given: Dada una lista de productos ", function(){
@@ -89,21 +99,20 @@ fdescribe('MetodospagoComponent', () => {
         });
       });
     });
-  });
+  }); 
 
-  describe("Given: Dados los datos de los productos que se compraran", function(){
-    
+  /** Prueba untaria Facturar */
+  describe("Given: Dados los datos de los productos que se compraran", function(){  
     describe("When: confirmamos que los datos de los productos esten cargados", function(){
-      beforeEach(function(){
-        let catalogoAComprar:any = component.productList;
-      });
       describe("Then: se valida que los datos para la facturacion sean validos", function(){
-        it("Muestra ", function(){
-          expect(component.productList).toBeDefined();
-        });
+          it('Muestra ', () => {
+              expect(component.Facturar()).toEqual("cargado");
+          });
       });
     });
   });
+
+
 
 
 });
