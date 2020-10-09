@@ -45,7 +45,7 @@ export class CarritoComponent implements OnInit
 
     public Compra ()
     {
-      this.router.navigate(['/factura']);
+      this.router.navigate(['/metodospago']);
     }
 
 }

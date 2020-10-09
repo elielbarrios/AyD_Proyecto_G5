@@ -6,7 +6,7 @@ import { ServicioRegistroService } from 'src/app/servicios/servicio-registro.ser
 
 import { RegistroComponent } from './registro.component';
 
-fdescribe('RegistroComponent', () => {
+describe('RegistroComponent', () => {
   let component: RegistroComponent;
   let fixture: ComponentFixture<RegistroComponent>;
 
