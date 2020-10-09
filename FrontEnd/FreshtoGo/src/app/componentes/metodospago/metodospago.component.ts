@@ -143,7 +143,50 @@ export class MetodospagoComponent implements OnInit {
 
   Facturar(): any
   {
+    this.user = {nombre: "Donald", apellido: "Trump", nit: "556677-5"};
 
+    const DATA = document.getElementById('htmlData');
+    const doc = new jsPDF('p', 'pt', 'a4');
+    
+    
+    
+    doc.setFont("helvetica");
+    doc.setFontType("bold");
+    
+    doc.setFontSize(20);
+    doc.setTextColor(16,73,11);
+    doc.text('Factura de productos FreshtoGo!', 15, 30);
+
+    doc.setFontSize(10);
+    doc.setTextColor(29,123,21);
+    doc.text('Nombre: ' + this.user.nombre + ' ' + this.user.apellido, 15, 70);
+    doc.text('NIT: ' + this.user.nit, 15, 95);
+
+    doc.text("_____________________________________________________________________________________________________", 15, 110);
+
+    const options = 
+    {
+      background: 'white',
+      scale: 3
+    };
+
+    html2canvas(DATA, options).then((canvas) => 
+    {
+        const img = canvas.toDataURL('image/PNG');
+        const bufferX = 15;
+        const bufferY = 125;
+        const imgProps = (doc as any).getImageProperties(img);
+        const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+        const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+        doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+        return doc;
+    }).then((docResult) => 
+    { 
+        docResult.save(`${new Date().toISOString()}_FreshtoGo.pdf`);
+        
+    });  
+
+    return "cargado";
 
   }
 
