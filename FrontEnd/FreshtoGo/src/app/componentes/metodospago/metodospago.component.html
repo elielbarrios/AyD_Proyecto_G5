@@ -2,27 +2,32 @@
 
     <div class="row">
         <div class="col">
-            <div class="card-header bg-dark text-white"><h4>Lista de productos</h4></div>
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                      <th scope="col"></th>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Cantidad</th>
-                      <th scope="col">Precio Unidad</th>
-                  </thead>
-                <tbody>
-                    <tr *ngFor="let item of productList; index as i;">
-                        <td> {{i +1}} </td>
-                        <td> {{item.Producto}} </td>
-                        <td> {{item.Cantidad}} </td>
-                        <td> Q. {{item.Precio}}</td>
-                    </tr>
-                </tbody>
-                <button class="btn btn-primary" *ngIf="confirmacion == false"  (click)="validarProductos()">
-                    Confirmar
-                </button>
-            </table> 
+            <div id="htmlData">
+                <div class="card-header bg-dark text-white"><h4>Lista de productos</h4></div>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio Unidad</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of productList; index as i;">
+                            <td> {{i +1}} </td>
+                            <td> {{item.Producto}} </td>
+                            <td> {{item.Cantidad}} </td>
+                            <td> Q. {{item.Precio}}</td>
+                        </tr>
+                    </tbody>   
+                </table> 
+            </div>
+
+            <button class="btn btn-primary" *ngIf="confirmacion == false"  (click)="validarProductos()">
+                Confirmar
+            </button>
+
+
         </div>   
     </div>
   
@@ -89,6 +94,6 @@
         </div>
     </div>
         
-             
+    <button (click)="Facturar()" type="button" class="btn btn-success">Imprimir</button>         
    
 </div>

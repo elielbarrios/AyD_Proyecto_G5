@@ -1,6 +1,8 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr'
 import { MetodospagoService } from '../../servicios/metodospago.service';
+import * as jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 
 @Component({
@@ -101,6 +103,11 @@ export class MetodospagoComponent implements OnInit {
 
   showSuccess(msj: string) {
     this.toastr.success(msj);
+  }
+
+  Facturar() 
+  {
+      //  
   }
 
 }

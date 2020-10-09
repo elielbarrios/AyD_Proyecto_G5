@@ -91,4 +91,19 @@ fdescribe('MetodospagoComponent', () => {
     });
   });
 
+  describe("Given: Dados los datos de los productos que se compraran", function(){
+    
+    describe("When: confirmamos que los datos de los productos esten cargados", function(){
+      beforeEach(function(){
+        let catalogoAComprar:any = component.productList;
+      });
+      describe("Then: se valida que los datos para la facturacion sean validos", function(){
+        it("Muestra ", function(){
+          expect(component.productList).toBeDefined();
+        });
+      });
+    });
+  });
+
+
 });
