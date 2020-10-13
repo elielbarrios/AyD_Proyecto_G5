@@ -17,6 +17,7 @@ class UsuarioRoutes
         this.router.get('/users',usuarioController.getUsers);
         this.router.get('/users/:id', usuarioController.getUser);
         this.router.post('/users/login/',usuarioController.Login);
+        this.router.post('/recupera',usuarioController.Recupera);
     }
 }
 const userRoutes = new UsuarioRoutes();
