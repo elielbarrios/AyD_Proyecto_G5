@@ -32,6 +32,23 @@ class UserController
             res.status(404).json({Acceso: "Denegado"});
         }
     }
+
+
+    //recuperacion
+    async Recupera(req : Request, res : Response) : Promise<void>  
+    {
+        const { email, nit} = req.body;
+        const query = await db.query('SELECT password FROM usuario WHERE email=? and nit=?',[email,nit]);
+        console.log(query.rows);
+        if(query.length == 1){
+            console.log('Recuperacion Correcta');
+            var pass= JSON.parse(query.body).password;
+            res.status(200).json({estado: "1", password: pass});
+        }else{
+            console.log('Usuario no existe'); 
+            res.status(404).json({estado: "0", password: ""});
+        }
+    }
     
 }
 

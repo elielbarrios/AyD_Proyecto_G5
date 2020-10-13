@@ -239,7 +239,7 @@ describe("Pruebas unitarias", () => {
    
                 Request.post("http://localhost:3000/api/recupera", {form:recuperar} , (error, response, body) => {
                     estado = JSON.parse(response.body).estado;
-                    pass = JSON.parse(response.body).pass;      
+                    pass = JSON.parse(response.body).password;      
                    if(estado === 1){
                     expect(pass).not.toBe("");
                     done();
