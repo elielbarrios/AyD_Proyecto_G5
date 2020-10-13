@@ -39,11 +39,9 @@ class UserController
     {
         const { email, nit} = req.body;
         const query = await db.query('SELECT password FROM usuario WHERE email=? and nit=?',[email,nit]);
-        console.log(query.rows);
         if(query.length == 1){
             console.log('Recuperacion Correcta');
-            var pass= JSON.parse(query.body).password;
-            res.status(200).json({estado: "1", password: pass});
+            res.status(200).json({estado: "1", password: query[0].password});
         }else{
             console.log('Usuario no existe'); 
             res.status(404).json({estado: "0", password: ""});
