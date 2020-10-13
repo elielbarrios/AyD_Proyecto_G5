@@ -1,6 +1,6 @@
 var Request = require("request");
 
-describe("Category resources", () => {
+describe("Pruebas unitarias", () => {
     var server;
     var newEntityID;
     var newEntity = {nombre_categoria:"Prueba", "root_id": 1};
@@ -141,7 +141,7 @@ describe("Category resources", () => {
 
     var server3;
     var newEntityID3;
-    var newEntity3 = {nombre_usuario:"Prueba", password_usuario: "1234"};
+    var newEntity3 = {nombre:"PruebaNombre", apellido: "PruebaApellido", email:"prueba@email.com", password:"655e786674d9d3e77bc05ed1de37b4b6bc89f788829f9f3c679e7687b410c89b"};
     beforeAll(()=>
     {
         server3 =  require("../build/index");
@@ -169,25 +169,66 @@ describe("Category resources", () => {
         })
     });
 
-    it("GET /user/:id - especific object", (done) => 
-    {
-        Request.get("http://localhost:3000/api/user/"+newEntityID3, (error, response, body) => {
-            expect(response.body).toBe([{nombre_usuario:"NombreUsuario", password_usuario:"0000"}]);
-            done();
-        })
-    });
-
     it("POST /newuser - status code", (done) => 
     {
         Request.post("http://localhost:3000/api/newuser", {form:newEntity3} , (error, response, body) => {
-            newEntityID3 = response.body.insertId3;
+            newEntityID3 = JSON.parse(response.body).insertId;
+            
+            console.log(JSON.parse(response.body));
+            console.log('NewEntityID -->>'+newEntityID3);
             console.log("POST /newuser - status code -> "+newEntityID3);
             expect(response.statusCode).toBe(200);
             done();
         })
 
     });
+    
+    it("GET /user/:id - especific object", (done) => 
+    {   
+        console.log(newEntityID3);
+        Request.get("http://localhost:3000/api/users/"+newEntityID3, (error, response, body) => {
+            expect(response.body).toBe([{nombre_usuario:"NombreUsuario", password_usuario:"0000"}]);
+            done();
+        })
+    });
 
+
+
+    ///Inicio facturacion
+    describe("GIVEN: El usuario entra a sus detalles de facturacion", () => { 
+        var userid = 1;
+
+        describe("WHEN: Da click en visualizar detalles guardados", ()=>{
+
+            it("THEN: Retorna un status code 200 con sus detalles guardados", (done)=>{
+                Request.get("http://localhost:3000/api/facturacion/detalles", (error, response, body) => {
+                    expect(response.statusCode).toBe(200);
+                    done();
+                })
+            });
+
+        });
+    
+    });
+
+    describe("GIVEN: El usuario entra a sus detalles de facturacion", () => { 
+        var userid = 1;
+
+        describe("WHEN: Da click en guardar nuevo metodo de pago", ()=>{
+            var metodoDePago = {fk_id_usuario: userid, fecha: '2020/08', cvv: 334};
+            it("THEN: Retorna un arreglo con todos sus metodos de pago guardados", (done)=>{
+                Request.post("http://localhost:3000/api/facturacion/detalles", {form: metodoDePago}, (error, response, body) => {
+                    expect(response.body.length).toBeGreaterThan(0);
+                    done();
+                })
+            });
+
+        });
+    
+    });
+
+
+    
 });
 
 
