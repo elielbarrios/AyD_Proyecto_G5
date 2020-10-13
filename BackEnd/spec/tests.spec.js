@@ -228,6 +228,36 @@ describe("Pruebas unitarias", () => {
     });
 
 
+    // Recuperacion de contraseña
+    describe("GIVEN: El usuario quiere recuperar  contraseña", () => { 
+
+        describe("WHEN: accede en recuperar contraseña", ()=>{
+            var recuperar = {email: 'prueba@gmail.com', nit: '123456-7'};
+            var estado;
+            var pass;
+            it("THEN: Retorna la contraseña del ususario", (done)=>{
+   
+                Request.post("http://localhost:3000/api/recupera", {form:recuperar} , (error, response, body) => {
+                    estado = JSON.parse(response.body).estado;
+                    pass = JSON.parse(response.body).pass;      
+                   if(estado === 1){
+                    expect(pass).not.toBe("");
+                    done();
+                   }else{
+                    expect(pass).toBe("");
+                    done();
+                   }
+
+                })
+
+
+            });
+
+        });
+    
+    });
+
+
     
 });
 
