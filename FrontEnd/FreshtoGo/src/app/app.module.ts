@@ -16,6 +16,7 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { MetodospagoComponent } from './componentes/metodospago/metodospago.component';
 
 import { ToastrModule } from 'ngx-toastr';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ToastrModule } from 'ngx-toastr';
     CategoriaComponent,
     LoginComponent,
     RegistroComponent,
-    MetodospagoComponent
+    MetodospagoComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
