@@ -7,7 +7,7 @@ import { Producto } from '../modelos/producto'
 })
 export class ServicioProductoService {
 
-  API_URI = 'http://52.15.119.221:3000/api/products';
+  API_URI = 'http://18.216.65.170:3001/api/products';
 
   constructor(private http: HttpClient) { }
 

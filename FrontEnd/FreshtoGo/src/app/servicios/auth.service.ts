@@ -9,7 +9,7 @@ import { FormatWidth, formatDate } from '@angular/common';
 })
 export class AuthService {
 
-  API_URI = 'http://18.217.114.84:3000/api';
+  API_URI = 'http://18.216.65.170:3001/api';
 
   constructor(private http: HttpClient) { }
 

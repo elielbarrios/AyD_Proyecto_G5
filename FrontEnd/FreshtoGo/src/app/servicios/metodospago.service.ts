@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http'
 })
 export class MetodospagoService {
 
-  API_URI = 'http://18.217.114.84:3000/api/facturacion';
+  API_URI = 'http://18.216.65.170:3001/api/facturacion';
 
   constructor(private http: HttpClient) { }
 

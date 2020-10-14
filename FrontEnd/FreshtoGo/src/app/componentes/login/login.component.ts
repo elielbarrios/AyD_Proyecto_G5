@@ -30,16 +30,18 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  iniciarSesion(){
+  iniciarSesion(){ 
     console.log(this.user);
     this.authService.loginUser(this.user).subscribe(
       res => {
         this.usuarioactivo = res;
         console.log(res);
         localStorage.setItem("usuarioactual",JSON.stringify(this.usuarioactivo));
-        this.router.navigateByUrl('/carrito');
-
-      })
+        //this.router.navigateByUrl('/carrito');
+        this.router.navigate(['/carrito']);
+      },
+      error =>{ console.log(error) })
+    console.log(this.usuarioactivo)
   }
 
   showError(msj:string) {

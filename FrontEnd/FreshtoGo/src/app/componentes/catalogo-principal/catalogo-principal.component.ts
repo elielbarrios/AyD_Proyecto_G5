@@ -69,7 +69,7 @@ export class CatalogoPrincipalComponent implements OnInit
     public AgregarACarrito (item:any)
     {
        
-        this.carritoAux = {id:1, Producto: item.nombre, Cantidad: 1, Precio: item.precio, Sutotal: item.precio};
+        this.carritoAux = {id: item.id_producto, Producto: item.nombre, Cantidad: 1, Precio: item.precio, Sutotal: item.precio};
         this.carrito.push(this.carritoAux);
         alert( item.nombre + " agregado al carrito, puedes continuar");
            

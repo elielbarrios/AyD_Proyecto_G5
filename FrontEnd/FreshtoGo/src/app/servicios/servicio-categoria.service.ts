@@ -7,7 +7,7 @@ import { Categoria } from '../modelos/categoria'
 })
 export class ServicioCategoriaService {
 
-  API_URI = 'http://52.15.119.221:3000/api/categories';
+  API_URI = 'http://18.216.65.170:3001/api/categories';
 
   constructor(private http: HttpClient) { }
 

@@ -39,6 +39,22 @@ export class MetodospagoComponent implements OnInit {
   metodopago:any = {
     tipo:""
   };
+
+  /**
+   * Variables para facturacion
+   */
+  public producto:any =
+  {
+      producto: "", //id_producto
+      cantidad: ""
+  }
+  
+  public factura_forBD:any = 
+  {
+      id_usuario:"",
+      Productos: []
+  }
+
   constructor(/*private toastr:ToastrService, */private pagoService:MetodospagoService, private router: Router) 
   { 
     
@@ -48,8 +64,10 @@ export class MetodospagoComponent implements OnInit {
         // este segmento sirve para obtener el total de la compra
         let total:number = 0;
         for (let index = 0; index < this.productList.length; index++) {
-          const element = this.productList[index];
+          const element = this.productList[index]; console.log(element)
           total = total + ( Number( element.Cantidad ) * Number( element.Precio ) );
+          let objetoProducto:any = {producto: element.id, cantidad: element.Cantidad};
+          this.factura_forBD.Productos.push(objetoProducto);
         }
         this.productList_total.total  = String(total.toPrecision(4));
         //-----------------------------------------------
@@ -59,6 +77,7 @@ export class MetodospagoComponent implements OnInit {
             this.user = JSON.parse(localStorage.getItem("usuarioactual"));
             this.datoscontraentrega.direccion = this.user.direccion;
             this.datoscontraentrega.celular = this.user.celular;
+            this.factura_forBD.id_usuario = this.user.id_usuario;
         }
     }
     else
@@ -143,7 +162,9 @@ export class MetodospagoComponent implements OnInit {
 
   Facturar(): any
   {
-    this.user = {nombre: "Donald", apellido: "Trump", nit: "556677-5"};
+    //this.user = {nombre: "Donald", apellido: "Trump", nit: "556677-5"};
+    console.log(this.user)
+    console.log(this.factura_forBD);
 
     const DATA = document.getElementById('htmlData');
     const doc = new jsPDF('p', 'pt', 'a4');
