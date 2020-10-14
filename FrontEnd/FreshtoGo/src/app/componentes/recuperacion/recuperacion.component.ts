@@ -29,7 +29,17 @@ export class RecuperacionComponent implements OnInit {
 
   public recuperar()
   {
-    
+    console.log(this.user);
+    this.authService.recuperar(this.user).subscribe(
+      res => {
+        let pass:any = res;
+        this.user.password = String(pass.password);
+        console.log(res)
+        return;
+      },
+      error => {})
+
+      this.user.password = String('error');
   }
 
 }
