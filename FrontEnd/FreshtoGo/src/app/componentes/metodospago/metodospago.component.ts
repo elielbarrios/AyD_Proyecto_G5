@@ -1,5 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr'
+import {Router} from "@angular/router"
+//import { ToastrService } from 'ngx-toastr'
 import { MetodospagoService } from '../../servicios/metodospago.service';
 
 
@@ -31,7 +32,7 @@ export class MetodospagoComponent implements OnInit {
   metodopago:any = {
     tipo:""
   };
-  constructor(private toastr:ToastrService, private pagoService:MetodospagoService) { }
+  constructor(/*private toastr:ToastrService, */private pagoService:MetodospagoService, private router: Router)  { }
 
   ngOnInit(): void {
     this.productList = JSON.parse(localStorage.getItem('currentUser'));
@@ -96,11 +97,13 @@ export class MetodospagoComponent implements OnInit {
   }
 
   showError(msj:string) {
-    this.toastr.error(msj);
+    //this.toastr.error(msj);
+    alert(msj);
   }
 
   showSuccess(msj: string) {
-    this.toastr.success(msj);
+    //this.toastr.success(msj);
+    alert(msj);
   }
 
 }

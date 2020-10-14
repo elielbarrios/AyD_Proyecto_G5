@@ -13,13 +13,24 @@
         <div class="col-md-4 offset-4">
             <div class="card">
                 <div class="card-body">
-                    <form>
+
+
+                    <form action="">
                         <div class="form-group">
-                            <h5> Se enviara una password temporal a su correo </h5>
-                            <input type="text" name="correousuario" placeholder="Correo" class="form-control" autofocus>
+                          <input type="text" name="email"  placeholder="correo electronico" class="form-control" [(ngModel)]="user.email">
                         </div>
-                        <button class="btn btn-success ">Enviar</button>
-                    </form>
+                        <div class="form-group">
+                          <input type="text" name="nit"  placeholder="NIT" class="form-control" [(ngModel)]="user.nit">
+                        </div>
+                        <button class="btn btn-success btn-block" (click)="recuperar()">
+                          Recuperar
+                        </button>
+                        <div class="form-group">
+                            <input type="text" name="recuperado"  placeholder="" class="form-control" [(ngModel)]="user.password">
+                          </div>
+                      </form>
+                      
+
                 </div>
             </div>
         </div>

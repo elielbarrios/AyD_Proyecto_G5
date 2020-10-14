@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../servicios/auth.service';
 
 @Component({
   selector: 'app-recuperacion',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecuperacionComponent implements OnInit {
 
-  constructor() { }
+  public user: any = 
+  {
+    email: '',
+    nit: '',
+    password: ''
+  };
 
-  ngOnInit(): void {
+  constructor(private router: Router, private authService: AuthService) 
+  { 
+    this.user.nit = String('vacio');
+    this.user.email = String('vacio');
+    this.user.password = String('vacio');
+  }
+
+  ngOnInit(): void 
+  {
+  }
+
+  public recuperar()
+  {
+    
   }
 
 }
