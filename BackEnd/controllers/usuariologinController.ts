@@ -1,4 +1,4 @@
-import {Response, Request} from 'express';
+import {Response, Request, response} from 'express';
 import db from '../conf/database';
 
 class UserController
@@ -45,6 +45,20 @@ class UserController
             console.log('Usuario no existe'); 
             res.status(404).json({estado: "0", password: ""});
         }
+    }
+
+    //Edita
+    async EditaPerfil(req : Request, res : Response) : Promise<void>  
+    {
+        const {id_usuario,nombre,apellido,email ,password,celular,nit,direccion} = req.body;
+        const query = await db.query('UPDATE usuario SET nombre=?,apellido=?,email=?,password=?,celular=?,nit=?,direccion=?  WHERE id_usuario=?',[nombre,apellido,email,password,celular,nit,direccion,id_usuario]);
+        var mesa ="Editado Exitoso"
+        var est =1;
+        if(query.affectedRows ===0){
+            mesa = "Fallo Edicion"
+            est =0
+        }
+        res.json({estado:est,mensaje:mesa});
     }
     
 }

@@ -263,12 +263,12 @@ describe("Pruebas unitarias", () => {
      describe("GIVEN: El usuario quiere editar su cuenta", () => { 
 
         describe("WHEN: envia sus nuevos valores", ()=>{
-            var enviar = {id_usuario:'1',nombre: 'Alvin', apelldo: 'Espino',email : 'alvine@gmail.com',password:'54321',celular:'88877700',nit:'1235-5',direccion:'usac ingenieria'};
+            var enviar = {id_usuario:'1',nombre: 'Alvin', apellido: 'Espino',email : 'alvine@gmail.com',password:'54321',celular:'88877700',nit:'1235-5',direccion:'usac ingenieria'};
             var estado;
             var verifi;
             it("THEN: Retorna un mensaje de verificacion", (done)=>{
    
-                Request.post("http://localhost:3000/api/editarperdil", {form:enviar} , (error, response, body) => {
+                Request.post("http://localhost:3000/api/editarperfil", {form:enviar} , (error, response, body) => {
                     estado = JSON.parse(response.body).estado;
                     verifi= JSON.parse(response.body).mensaje;
                    if(estado === 1){
