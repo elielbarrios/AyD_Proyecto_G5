@@ -33,13 +33,13 @@
                               <div class="col">
                                 <div class="form-group">
                                   <label>Nombre </label>
-                                  <input class="form-control" type="text" name="nombre" >
+                                  <input class="form-control" type="text" name="nombre" [(ngModel)]="user.nombre">
                                 </div>
                               </div>
                               <div class="col">
                                 <div class="form-group">
                                   <label>Apellido</label>
-                                  <input class="form-control" type="text" name="apellido" >
+                                  <input class="form-control" type="text" name="apellido"  [(ngModel)]="user.apellido">
                                 </div>
                               </div>
                             </div>
@@ -47,13 +47,13 @@
                                 <div class="col">
                                   <div class="form-group">
                                     <label> Correo </label>
-                                    <input class="form-control" type="text"  name="correo" >
+                                    <input class="form-control" type="text"  name="correo"  [(ngModel)]="user.email">
                                   </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                       <label>Celular</label>
-                                      <input class="form-control" rows="5"  name="telefono" >
+                                      <input class="form-control" rows="5"  name="telefono"  [(ngModel)]="user.celular">
                                     </div>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@
                               <div class="col mb-3">
                                 <div class="form-group">
                                   <label>Dirección</label>
-                                  <input class="form-control" rows="5"  name="direccion" >
+                                  <input class="form-control" rows="5"  name="direccion"  [(ngModel)]="user.direccion">
                                 </div>
                               </div>
                               
@@ -76,12 +76,12 @@
                                   <label>Password</label>
                                   <div class="row" ng-controller="prueba" ng-app="demoApp">
                                     <div class="col">
-                                        <input class="form-control" type="password"  id="myPassword" name="currentPass"  >
+                                        <input class="form-control" type="password"  id="myPassword" name="currentPass"   [(ngModel)]="user.password">
                                     </div>
                                     
-                                    <div class="col">
+                                    <!--<div class="col">
                                         <button class="btn btn-light"><i class="fas fa-eye"></i></button>
-                                    </div>
+                                    </div>-->
                                   </div>
                                 </div>
                               </div>
@@ -91,7 +91,7 @@
                         </div>
                         <div class="row">
                           <div class="col d-flex justify-content-end">
-                            <button class="btn btn-success" >Guardar cambios</button>
+                            <button class="btn btn-success" (click)="saveChanges()">Guardar cambios</button>
                           </div>
                         </div>
                       </form>

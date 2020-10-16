@@ -10,6 +10,6 @@ export class UsuariosService {
   constructor(private http: HttpClient) { }
 
   updateUser(usuario:any){
-    return this.http.put(`${this.API_URI}/edit`,usuario);
+    return this.http.put(`${this.API_URI}/editarperfil`,usuario);
   }
 }
