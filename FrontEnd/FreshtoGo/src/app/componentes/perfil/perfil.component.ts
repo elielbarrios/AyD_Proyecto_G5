@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 export class PerfilComponent implements OnInit {
   
   user: any = {}
-
   
   constructor(private authservice: AuthService, private userService: UsuariosService, private router:Router) { }
 
@@ -19,22 +18,32 @@ export class PerfilComponent implements OnInit {
     this.getUser();
   }
 
-  getUser(){
+  getUser():boolean{
     this.user = JSON.parse(localStorage.getItem("usuarioactual")); 
-  }
-
-  showPassword(){
-    var x = <HTMLInputElement>document.getElementById("myPassword");
-    if(x.type === 'password')
-      x.type = 'text';
-    else
-      x.type = 'password';
-  }
-
-
-  saveChanges():boolean{
     if(this.user != null){
-      this.userService.updateUser(this.userService).subscribe(
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  showPassword():boolean{
+    var x = <HTMLInputElement>document.getElementById("myPassword");
+    if(x.type === 'password'){
+      x.type = 'text';
+      return true;
+    }else{
+      x.type = 'password';
+      return false;
+    }
+      
+  }
+
+
+  saveChanges(usuario?):boolean{
+    console.log(this.user);
+    if(this.user != null){
+      this.userService.updateUser(this.user).subscribe(
         res=>{
           return true;
         }

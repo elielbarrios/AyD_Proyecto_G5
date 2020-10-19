@@ -56,6 +56,12 @@
                                       <input class="form-control" rows="5"  name="telefono"  [(ngModel)]="user.celular">
                                     </div>
                                 </div>
+                                <div class="col">
+                                  <div class="form-group">
+                                    <label>Nit</label>
+                                    <input class="form-control" rows="5"  name="nit"  [(ngModel)]="user.nit">
+                                  </div>
+                              </div>
                             </div>
                             <div class="row">
                               <div class="col mb-3">
@@ -79,9 +85,9 @@
                                         <input class="form-control" type="password"  id="myPassword" name="currentPass"   [(ngModel)]="user.password">
                                     </div>
                                     
-                                    <!--<div class="col">
-                                        <button class="btn btn-light"><i class="fas fa-eye"></i></button>
-                                    </div>-->
+                                    <div class="col">
+                                        <button class="btn btn-light" (click)="showPassword()"><i class="fas fa-eye"></i></button>
+                                    </div>
                                   </div>
                                 </div>
                               </div>

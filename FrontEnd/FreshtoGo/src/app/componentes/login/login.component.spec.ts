@@ -2,7 +2,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Route, Router, Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ServicioLoginService } from 'src/app/servicios/servicio-login.service';
+//import { ServicioLoginService } from 'src/app/servicios/servicio-login.service';
 import { CategoriaComponent } from '../categoria/categoria.component';
 
 import { LoginComponent } from './login.component';
@@ -21,7 +21,7 @@ describe('LoginComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ RouterTestingModule.withRoutes(routes),HttpClientTestingModule ],
-      providers: [ ServicioLoginService ],
+      //providers: [ ServicioLoginService ],
       declarations: [ LoginComponent ]
     })
     .compileComponents();
@@ -41,7 +41,7 @@ describe('LoginComponent', () => {
   });
 
   // Pruebas unitarias TDD 
-
+/*
   describe('Test for Login -> iniciarSesion()',() =>{
     it('Shoul change user and password var',()=>{
       component.iniciarSesion();
@@ -61,5 +61,5 @@ describe('LoginComponent', () => {
     tick(50);
     expect(location.pathname).toBe('/registro');
   }));
-
+*/
 });
