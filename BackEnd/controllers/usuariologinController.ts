@@ -1,4 +1,4 @@
-import {Response, Request} from 'express';
+import {Response, Request, response} from 'express';
 import db from '../conf/database';
 
 class UserController
@@ -14,13 +14,14 @@ class UserController
     {
         const retVal = await db.query('SELECT * FROM usuario Where id_usuario=?',[req.params.id]);
         console.log(retVal);
+        res.json(retVal[0]);
     }
     
 
     async Login(req : Request, res : Response) : Promise<void> //inicio de sesion  
     {
         const { email, password} = req.body;
-        const query = await db.query('SELECT * FROM usuario WHERE email=:email and password=:password',[email,password]);
+        const query = await db.query('SELECT * FROM usuario WHERE email=? and password=?',[email,password]);
         console.log(query.rows);
          
         if(query.length == 1){
@@ -30,6 +31,35 @@ class UserController
             console.log('Acceso denegado'); 
             res.status(404).json({Acceso: "Denegado"});
         }
+    }
+
+
+    //recuperacion
+    async Recupera(req : Request, res : Response) : Promise<void>  
+    {
+        const { email, nit} = req.body;
+        const query = await db.query('SELECT password FROM usuario WHERE email=? and nit=?',[email,nit]);
+        if(query.length == 1){
+            console.log('Recuperacion Correcta');
+            res.status(200).json({estado: "1", password: query[0].password});
+        }else{
+            console.log('Usuario no existe'); 
+            res.status(404).json({estado: "0", password: ""});
+        }
+    }
+
+    //Edita
+    async EditaPerfil(req : Request, res : Response) : Promise<void>  
+    {
+        const {id_usuario,nombre,apellido,email ,password,celular,nit,direccion} = req.body;
+        const query = await db.query('UPDATE usuario SET nombre=?,apellido=?,email=?,password=?,celular=?,nit=?,direccion=?  WHERE id_usuario=?',[nombre,apellido,email,password,celular,nit,direccion,id_usuario]);
+        var mesa ="Editado Exitoso"
+        var est =1;
+        if(query.affectedRows ===0){
+            mesa = "Fallo Edicion"
+            est =0
+        }
+        res.json({estado:est,mensaje:mesa});
     }
     
 }
