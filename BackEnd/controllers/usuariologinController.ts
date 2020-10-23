@@ -14,6 +14,7 @@ class UserController
     {
         const retVal = await db.query('SELECT * FROM usuario Where id_usuario=?',[req.params.id]);
         console.log(retVal);
+        res.json(retVal[0]);
     }
     
 
