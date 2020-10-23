@@ -15,6 +15,7 @@ class UsuarioRegRoutes
     config() : void
     {
         this.router.post('/newuser',usuarioRegController.addUser);
+        
     }
 }
 const userRegRoutes = new UsuarioRegRoutes();
