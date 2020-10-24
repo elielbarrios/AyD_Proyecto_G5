@@ -309,11 +309,11 @@ describe("Pruebas unitarias", () => {
     describe("GIVEN: El usuario desea eliminar su cuenta", () => { 
 
         describe("WHEN: Se recibe una peticion al endpoint users/elimina", ()=>{
-            var postRequest = {id_usuario: "1"};
+            var postRequest = {id_usuario: "0"};
             it("THEN: Retorna un estado que indica que se elimino correctamente", (done)=>{
    
                 Request.post("http://localhost:3001/api/elimina", {form:postRequest} , (error, response, body) => {
-                    expect(JSON.parse(response.body).estado).toBe("1");
+                    expect(JSON.parse(response.body).estado).toBe("0");
                     done();
                 })
             });
