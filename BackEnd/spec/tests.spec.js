@@ -290,6 +290,7 @@ describe("Pruebas unitarias", () => {
     
     });
 
+    //recuperacion
     describe("GIVEN: El usuario desea recuperar su contraseña", () => { 
 
         describe("WHEN: Se recibe una peticion al endpoint users/recupera", ()=>{
@@ -304,6 +305,20 @@ describe("Pruebas unitarias", () => {
         });
     });
 
+    //Cerrar Cuenta
+    describe("GIVEN: El usuario desea eliminar su cuenta", () => { 
+
+        describe("WHEN: Se recibe una peticion al endpoint users/elimina", ()=>{
+            var postRequest = {id_usuario: "1"};
+            it("THEN: Retorna un estado que indica que se elimino correctamente", (done)=>{
+   
+                Request.post("http://localhost:3001/api/elimina", {form:postRequest} , (error, response, body) => {
+                    expect(JSON.parse(response.body).estado).toBe("1");
+                    done();
+                })
+            });
+        });
+    });
 
     
 });
