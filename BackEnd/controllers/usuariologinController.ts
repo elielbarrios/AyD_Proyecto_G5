@@ -66,6 +66,13 @@ class UserController
     {
         const {id_usuario} = req.body;
         const query1 = await db.query('DELETE FROM tarjeta WHERE fk_id_usuario=?',[id_usuario]);
+        
+        const query4 = await db.query('select count(id_orden) as numero from orden where fk_id_usuario =?',[id_usuario]);
+        const query5 = await db.query('select id_orden from orden where fk_id_usuario =?',[id_usuario]); 
+        var numero = query4[0].numero;
+        for (let i = 0; i < numero; i++) {
+            const query3 = await db.query('DELETE FROM orden_producto WHERE fk_id_orden =?',[query5[i].id_orden]); 
+        }   
         const query2 = await db.query('DELETE FROM orden WHERE fk_id_usuario=?',[id_usuario]);
         const query = await db.query('DELETE FROM usuario WHERE id_usuario=?',[id_usuario]);
         var est =1;
