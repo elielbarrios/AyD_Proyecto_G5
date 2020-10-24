@@ -16,29 +16,28 @@ export class CatalogConectionService
 
     public getProductos () 
     {
-        return this.http.get('http://18.217.114.84:3000/api/products'); 
+        return this.http.get(ip + 'products'); 
     }
 
     public getProductos_id (retorno:Producto)
     {
         let varBusqeda = String(retorno.nombre);
-        //return this.http.post('http://18.217.114.84:3000/api/products', retorno); 
-        return this.http.get('http://18.217.114.84:3000/api/products/' + varBusqeda); 
+        return this.http.get(ip + 'products/' + varBusqeda); 
     }
 
     public getProductosOrdenados_Alfabeticamente () 
     {
-        return this.http.get('http://18.217.114.84:3000/api/productosalfa'); 
+        return this.http.get( ip + 'productosalfa'); 
     }
 
     public getProductosOrdenados_PorPrecios () 
     {
-        return this.http.get('http://18.217.114.84:3000/api/productosporprecio'); 
+        return this.http.get(ip + 'productosporprecio'); 
     }
 
     public getProductosOrdenados_PorCategoria () 
     {
-        return this.http.get('http://18.217.114.84:3000/api/productosporcategoria'); 
+        return this.http.get(ip + 'productosporcategoria'); 
     }
 
 

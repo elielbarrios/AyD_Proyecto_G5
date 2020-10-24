@@ -1,7 +1,7 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { ToastrService } from 'ngx-toastr';
-import { NgForm } from '@angular/forms';
+//import { ToastrService } from 'ngx-toastr';
+//import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../servicios/auth.service';
 
@@ -25,30 +25,33 @@ export class LoginComponent implements OnInit {
 
   usuarioactivo:any;
 
-
-  constructor(private toastr:ToastrService, private router: Router, private location: Location, private authService: AuthService) { }
+  constructor(/*private toastr:ToastrService,*/ private router: Router, private location: Location, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  iniciarSesion(){
+  iniciarSesion(){ 
     console.log(this.user);
     this.authService.loginUser(this.user).subscribe(
       res => {
         this.usuarioactivo = res;
         console.log(res);
         localStorage.setItem("usuarioactual",JSON.stringify(this.usuarioactivo));
-        this.router.navigateByUrl('/carrito');
-
-      })
+        //this.router.navigateByUrl('/carrito');
+        this.router.navigate(['/carrito']);
+      },
+      error =>{ console.log(error) })
+    console.log(this.usuarioactivo)
   }
 
   showError(msj:string) {
-    this.toastr.error(msj);
+    //this.toastr.error(msj);
+    alert(msj);
   }
 
   showSuccess(msj: string) {
-    this.toastr.success(msj);
+    //this.toastr.success(msj);
+    alert(msj);
   }
 
 }

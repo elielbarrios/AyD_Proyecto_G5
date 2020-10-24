@@ -1,0 +1,37 @@
+<div class="container pt-2">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br>
+            <img src="assets/logo.png" width='200' height='150' alt="asd">
+        </div>
+    </div>
+    <div class="col-md-12 text-center text-white " style="padding-top: 20px;">
+        <h2> RECUPERAR CONTRASEÑA </h2>
+    </div>
+    
+    <div class="row pt-3">
+        <div class="col-md-4 offset-4">
+            <div class="card">
+                <div class="card-body">
+
+
+                    <form action="">
+                        <div class="form-group">
+                          <input type="text" name="email"  placeholder="correo electronico" class="form-control" [(ngModel)]="user.email">
+                        </div>
+                        <div class="form-group">
+                          <input type="text" name="nit"  placeholder="NIT" class="form-control" [(ngModel)]="user.nit">
+                        </div>
+                        <button class="btn btn-success btn-block" (click)="recuperar()">
+                          Recuperar
+                        </button>
+                        <div class="form-group">
+                            <input type="text" name="recuperado"  placeholder="" class="form-control" [(ngModel)]="user.password">
+                          </div>
+                      </form>
+                      
+
+                </div>
+            </div>
+        </div>
+    </div>
