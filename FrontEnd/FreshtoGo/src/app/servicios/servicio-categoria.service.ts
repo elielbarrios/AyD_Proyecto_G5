@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Categoria } from '../modelos/categoria'
+import ip from './IP';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServicioCategoriaService {
 
-  API_URI = 'http://52.15.119.221:3000/api/categories';
+  API_URI = ip + 'categories';
 
   constructor(private http: HttpClient) { }
 
