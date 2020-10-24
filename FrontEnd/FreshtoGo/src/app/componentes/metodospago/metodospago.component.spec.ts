@@ -13,7 +13,7 @@ import html2canvas from 'html2canvas';
 
 import { MetodospagoComponent } from './metodospago.component';
 
-fdescribe('Test for MetodospagoComponent', () => {  
+describe('Test for MetodospagoComponent', () => {  
   let component: MetodospagoComponent;
   let fixture: ComponentFixture<MetodospagoComponent>;
 

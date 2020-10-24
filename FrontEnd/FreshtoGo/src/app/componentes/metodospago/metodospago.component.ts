@@ -90,7 +90,7 @@ export class MetodospagoComponent implements OnInit {
 
   ngOnInit(): void 
   {
-   
+
   }
 
   

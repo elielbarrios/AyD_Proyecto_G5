@@ -23,6 +23,11 @@ export class AuthService {
   registraruser(user:any){
       return this.http.post( ip + 'newuser',user);
   }
+
+  recuperar(user:any)
+  {
+      return this.http.post(`${this.API_URI}/recupera`,user);
+  }
 }
 
 
