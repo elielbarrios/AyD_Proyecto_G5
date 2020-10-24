@@ -46,13 +46,14 @@ export class MetodospagoComponent implements OnInit {
   public producto:any =
   {
       producto: "", //id_producto
-      cantidad: ""
+      cantidad: "",
+      precioUnitario: ""
   }
   
   public factura_forBD:any = 
   {
-      id_usuario:"",
-      Productos: []
+      clientId:"",
+      products: []
   }
 
   constructor(/*private toastr:ToastrService, */private pagoService:MetodospagoService, private router: Router) 
@@ -66,8 +67,8 @@ export class MetodospagoComponent implements OnInit {
         for (let index = 0; index < this.productList.length; index++) {
           const element = this.productList[index]; console.log(element)
           total = total + ( Number( element.Cantidad ) * Number( element.Precio ) );
-          let objetoProducto:any = {producto: element.id, cantidad: element.Cantidad};
-          this.factura_forBD.Productos.push(objetoProducto);
+          let objetoProducto:any = {producto: element.id, cantidad: element.Cantidad, precioUnitario: element.Precio};
+          this.factura_forBD.products.push(objetoProducto);
         }
         this.productList_total.total  = String(total.toPrecision(4));
         //-----------------------------------------------
@@ -77,7 +78,7 @@ export class MetodospagoComponent implements OnInit {
             this.user = JSON.parse(localStorage.getItem("usuarioactual"));
             this.datoscontraentrega.direccion = this.user.direccion;
             this.datoscontraentrega.celular = this.user.celular;
-            this.factura_forBD.id_usuario = this.user.id_usuario;
+            this.factura_forBD.clientId = this.user.id_usuario;
         }
     }
     else
@@ -164,7 +165,7 @@ export class MetodospagoComponent implements OnInit {
   {
     //this.user = {nombre: "Donald", apellido: "Trump", nit: "556677-5"};
     console.log(this.user)
-    console.log(this.factura_forBD);
+    this.ingresarFacturaenBD();
 
     const DATA = document.getElementById('htmlData');
     const doc = new jsPDF('p', 'pt', 'a4');
@@ -211,4 +212,14 @@ export class MetodospagoComponent implements OnInit {
 
   }
 
+  ingresarFacturaenBD()
+  {
+    console.log(this.factura_forBD);
+    this.pagoService.newFactura(this.factura_forBD).subscribe(
+      res=>{
+        this.showSuccess("Tarjeta agregada correctamente a BD");
+        return true;
+      }
+    )
+  }
 }

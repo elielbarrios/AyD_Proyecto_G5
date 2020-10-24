@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import ip from './IP';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MetodospagoService {
 
-  API_URI = 'http://18.216.65.170:3001/api/facturacion';
+  API_URI = ip + 'facturacion';
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +23,9 @@ export class MetodospagoService {
     return this.http.get(`${this.API_URI}/detalles`);
   }
 
-  
+  newFactura(factura:any)
+  {
+    return this.http.post(`${this.API_URI}/nuevaOrden`,factura);
+  }
 
 }
