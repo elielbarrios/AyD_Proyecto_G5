@@ -61,7 +61,19 @@ class UserController
         }
         res.json({estado:est,mensaje:mesa});
     }
-    
+    //Eliminar Cuenta
+    async Eliminar(req : Request, res : Response) : Promise<void>  
+    {
+        const {id_usuario} = req.body;
+        const query1 = await db.query('DELETE FROM tarjeta WHERE fk_id_usuario=?',[id_usuario]);
+        const query2 = await db.query('DELETE FROM orden WHERE fk_id_usuario=?',[id_usuario]);
+        const query = await db.query('DELETE FROM usuario WHERE id_usuario=?',[id_usuario]);
+        var est =1;
+        if(query.affectedRows ===0){
+            est =0;
+        }
+        res.json({estado:est});
+    }
 }
 
 export const usuarioController = new UserController();
