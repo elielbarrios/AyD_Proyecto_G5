@@ -313,7 +313,7 @@ describe("Pruebas unitarias", () => {
             it("THEN: Retorna un estado que indica que se elimino correctamente", (done)=>{
    
                 Request.post("http://localhost:3001/api/elimina", {form:postRequest} , (error, response, body) => {
-                    expect(JSON.parse(response.body).estado).toBe("0");
+                    expect(JSON.parse(response.body).estado).toBe(0);
                     done();
                 })
             });
