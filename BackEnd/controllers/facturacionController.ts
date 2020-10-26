@@ -55,7 +55,12 @@ class FacturacionController
     {
         const { id_orden, estado} = req.body;
         const retVal = await db.query('UPDATE orden SET estado=? WHERE id_orden = ?', [estado, id_orden] ); //valor a retornar
-        res.status(200).json(retVal);
+        if(retVal.affectedRows ==0){
+            res.status(400).json({cambio: "0"});
+        }else{
+            res.status(200).json({cambio: "1"});
+        }
+   
     }
     /*
     {

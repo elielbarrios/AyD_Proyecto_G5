@@ -330,7 +330,7 @@ describe("Pruebas unitarias", () => {
             it("THEN: consulta exitosa", (done) => 
             {
                 Request.post("http://localhost:3001/api/facturacion/cambioestado",{form:data} , (error, response, body) => {
-                    expect(response.statusCode).toBe(200);
+                    expect(response.statusCode).toBe(400);
                     done();
                 })
             });
