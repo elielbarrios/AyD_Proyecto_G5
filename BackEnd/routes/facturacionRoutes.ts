@@ -17,6 +17,7 @@ class FacturacionRoutes
         this.router.get('/facturacion/detalles', facturacionController.getMetodosDePago);
         this.router.post('/facturacion/detalles', facturacionController.addMetodoDePago); 
         this.router.post('/facturacion/nuevaOrden', facturacionController.generarOrden);
+        this.router.post('/facturacion/cambioestado', facturacionController.Cambiarestado);
     }
 }
 const facturacionRoutes = new FacturacionRoutes();

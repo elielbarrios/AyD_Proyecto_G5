@@ -324,7 +324,7 @@ describe("Pruebas unitarias", () => {
     it("Cambio de estado", (done) => 
     {
          var data = {id_orden: "1",estado: "Embalaje"};
-         Request.post("http://localhost:3001/api/cambioestado",{form:data} , (error, response, body) => {
+         Request.post("http://localhost:3001/api/facturacion/cambioestado",{form:data} , (error, response, body) => {
             expect(JSON.parse(response.body).estado).not.toBe(0);
             done();
         })
