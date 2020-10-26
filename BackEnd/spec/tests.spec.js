@@ -327,10 +327,10 @@ describe("Pruebas unitarias", () => {
 
         describe("WHEN: Se recibe una peticion al endpoint facturacion/cambioestado", ()=>{
             var data = {id_orden: "1",estado: "Embalaje"};
-            it("THEN: Cambio de estado", (done) => 
+            it("THEN: consulta exitosa", (done) => 
             {
                 Request.post("http://localhost:3001/api/facturacion/cambioestado",{form:data} , (error, response, body) => {
-                    expect(JSON.parse(response.body).estado).not.toBe(0);
+                    expect(response.statusCode).toBe(200);
                     done();
                 })
             });
