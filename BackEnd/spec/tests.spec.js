@@ -321,13 +321,20 @@ describe("Pruebas unitarias", () => {
     });
 
     //Prueba cambiar estado
-    it("Cambio de estado", (done) => 
-    {
-         var data = {id_orden: "1",estado: "Embalaje"};
-         Request.post("http://localhost:3001/api/facturacion/cambioestado",{form:data} , (error, response, body) => {
-            expect(JSON.parse(response.body).estado).not.toBe(0);
-            done();
-        })
+    
+
+    describe("GIVEN: El admin oprime el boton para cambiar estado", () => { 
+
+        describe("WHEN: Se recibe una peticion al endpoint facturacion/cambioestado", ()=>{
+            var data = {id_orden: "1",estado: "Embalaje"};
+            it("THEN: Cambio de estado", (done) => 
+            {
+                Request.post("http://localhost:3001/api/facturacion/cambioestado",{form:data} , (error, response, body) => {
+                    expect(JSON.parse(response.body).estado).not.toBe(0);
+                    done();
+                })
+            });
+        });
     });
     
 });
