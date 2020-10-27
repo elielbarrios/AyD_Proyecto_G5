@@ -4,7 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { AuthService } from '../../servicios/auth.service';
 import { RecuperacionComponent } from './recuperacion.component';
 
-fdescribe('RecuperacionComponent', () => {
+describe('RecuperacionComponent', () => {
   let component: RecuperacionComponent;
   let fixture: ComponentFixture<RecuperacionComponent>;
 

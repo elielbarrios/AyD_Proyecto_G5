@@ -11,12 +11,12 @@ import { RecuperacionComponent } from './componentes/recuperacion/recuperacion.c
 
 const routes: Routes = [
 
-  { path: "carrito", component: CarritoComponent },
-  { path: "catalogo", component: CatalogoPrincipalComponent },
+  { path: "carrito", component: CarritoComponent }, //
+  { path: "catalogo", component: CatalogoPrincipalComponent }, //
   { path: "producto", component: ProductoComponent },
   { path: "category", component: CategoriaComponent },
-  { path: "login", component: LoginComponent },
-  { path: "registro", component: RegistroComponent },
+  { path: "login", component: LoginComponent }, //
+  { path: "registro", component: RegistroComponent }, //
   { path: "metodospago", component: MetodospagoComponent },
   { path: "recuperar", component:RecuperacionComponent }
 ];
