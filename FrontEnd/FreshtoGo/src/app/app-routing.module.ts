@@ -8,6 +8,7 @@ import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { MetodospagoComponent } from './componentes/metodospago/metodospago.component';
 import { RecuperacionComponent } from './componentes/recuperacion/recuperacion.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 const routes: Routes = [
 
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: "login", component: LoginComponent }, //
   { path: "registro", component: RegistroComponent }, //
   { path: "metodospago", component: MetodospagoComponent },
-  { path: "recuperar", component:RecuperacionComponent }
+  { path: "recuperar", component:RecuperacionComponent },
+  { path: "editperfil", component: PerfilComponent }
 ];
 
 @NgModule({
