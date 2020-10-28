@@ -39,8 +39,7 @@ export class PerfilComponent implements OnInit {
       
   }
 
-
-  saveChanges(usuario?):boolean{
+  saveChanges():boolean{
     console.log(this.user);
     if(this.user != null){
       this.userService.updateUser(this.user).subscribe(

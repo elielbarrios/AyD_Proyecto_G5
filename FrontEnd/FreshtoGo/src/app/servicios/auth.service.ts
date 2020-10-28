@@ -14,7 +14,6 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   loginUser(usuario: any){
-    //this.saveUser(usuario.correo);
     return this.http.post(`${this.API_URI}/users/login`,usuario);
   }
 

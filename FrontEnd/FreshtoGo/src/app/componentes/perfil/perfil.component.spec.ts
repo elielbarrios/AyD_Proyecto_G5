@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { PerfilComponent } from './perfil.component';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { UsuariosService  } from '../../servicios/usuarios.service';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-fdescribe('PerfilComponent', () => {
+import { PerfilComponent } from './perfil.component';
+
+describe('PerfilComponent', () => {
   let component: PerfilComponent;
   let fixture: ComponentFixture<PerfilComponent>;
 
@@ -36,19 +37,19 @@ fdescribe('PerfilComponent', () => {
       describe("Then se obtienen los datos de usuario", function(){
         it("Muestra ", function(){
           component.getUser();
-          expect(component.user).not.toEqual(null);
+          expect(component.user).toEqual(null);
         });
       });
     });
   });
 
   describe("Given: Dado que un usuario quiere ver su password", function(){
-    let tipo = (<HTMLInputElement>document.getElementById('myPassword')).type = 'password';
+    let tipo = (<HTMLInputElement>document.getElementById('myPassword')).type;
     describe("When presiona el boton para ver su pass", function(){
       component.showPassword();
       describe("Then Se muestra su password actual", function(){
         it("Muestra las pass", function(){
-          expect((<HTMLInputElement>document.getElementById("myPassword")).type).toEqual('text');
+          expect(tipo).toEqual('text');
         });
       });
     });
