@@ -25,10 +25,8 @@ describe('PerfilComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create perfil component', () => {
-    const fixture = TestBed.createComponent(PerfilComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 
 
@@ -37,19 +35,22 @@ describe('PerfilComponent', () => {
       describe("Then se obtienen los datos de usuario", function(){
         it("Muestra ", function(){
           component.getUser();
-          expect(component.user).toEqual(null);
+          expect(component.user).not.toEqual(null);
         });
       });
     });
   });
 
   describe("Given: Dado que un usuario quiere ver su password", function(){
-    let tipo = (<HTMLInputElement>document.getElementById('myPassword')).type;
+   
     describe("When presiona el boton para ver su pass", function(){
-      component.showPassword();
+      
       describe("Then Se muestra su password actual", function(){
         it("Muestra las pass", function(){
-          expect(tipo).toEqual('text');
+          let x_ = component.x;
+          component.showPassword();
+          expect(x_).toEqual(component.x);
+
         });
       });
     });

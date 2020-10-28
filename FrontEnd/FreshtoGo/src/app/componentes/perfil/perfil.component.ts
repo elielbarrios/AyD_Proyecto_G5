@@ -10,30 +10,38 @@ import { Router } from '@angular/router';
 })
 export class PerfilComponent implements OnInit {
   
-  user: any = {}
+  user: any = {nombre:''}
+  x:any = 'password';
   
-  constructor(private authservice: AuthService, private userService: UsuariosService, private router:Router) { }
+  constructor(private authservice: AuthService, private userService: UsuariosService, private router:Router) {
+    //this.getUser();
+   }
 
   ngOnInit(): void {
     this.getUser();
   }
 
   getUser():boolean{
-    this.user = JSON.parse(localStorage.getItem("usuarioactual")); 
-    if(this.user != null){
-      return true;
-    }else{
-      return false;
+    if(localStorage.getItem("usuarioactual") != null){
+      this.user = JSON.parse(localStorage.getItem("usuarioactual")); 
+      if(this.user != null){
+        return true;
+      }else{
+        return false;
+      }
     }
+   
   }
 
+  
   showPassword():boolean{
-    var x = <HTMLInputElement>document.getElementById("myPassword");
-    if(x.type === 'password'){
-      x.type = 'text';
+    var aux = <HTMLInputElement>document.getElementById("myPassword");
+    this.x = aux.type;
+    if(aux.type === 'password'){
+      aux.type = 'text';
       return true;
     }else{
-      x.type = 'password';
+      aux.type = 'password';
       return false;
     }
       
