@@ -12,6 +12,10 @@ export class PerfilComponent implements OnInit {
   
   user: any = {nombre:''}
   x:any = 'password';
+
+  usuario:any = {
+    id_usuario:0
+  } 
   
   constructor(private authservice: AuthService, private userService: UsuariosService, private router:Router) {
     //this.getUser();
@@ -24,6 +28,7 @@ export class PerfilComponent implements OnInit {
   getUser():boolean{
     if(localStorage.getItem("usuarioactual") != null){
       this.user = JSON.parse(localStorage.getItem("usuarioactual")); 
+      console.log(this.user);
       if(this.user != null){
         return true;
       }else{
@@ -52,12 +57,27 @@ export class PerfilComponent implements OnInit {
     if(this.user != null){
       this.userService.updateUser(this.user).subscribe(
         res=>{
+          localStorage.setItem("usuarioactual",JSON.stringify(this.user));
+          this.getUser();
           return true;
         }
       )
     }else{
       return false;
     }
+  }
+
+
+  eliminarCuenta(){
+    console.log("ID a eliminar: "+ this.user.id_usuario);
+    this.usuario.id_usuario = this.user.id_usuario;
+    console.log(this.usuario);
+    this.userService.deleteCuenta(this.usuario).subscribe(
+      ()=>{
+        this.router.navigateByUrl('/login');
+      }
+    )
+    
   }
 
 }
