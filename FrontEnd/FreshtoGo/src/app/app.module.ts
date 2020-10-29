@@ -17,6 +17,7 @@ import { MetodospagoComponent } from './componentes/metodospago/metodospago.comp
 
 import { ToastrModule } from 'ngx-toastr';
 import { RecuperacionComponent } from './componentes/recuperacion/recuperacion.component';
+import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RecuperacionComponent } from './componentes/recuperacion/recuperacion.c
     LoginComponent,
     RegistroComponent,
     MetodospagoComponent,
-    RecuperacionComponent
+    RecuperacionComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

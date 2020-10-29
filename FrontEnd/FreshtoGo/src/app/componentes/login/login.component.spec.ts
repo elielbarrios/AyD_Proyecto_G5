@@ -41,12 +41,12 @@ describe('LoginComponent', () => {
   });
 
   // Pruebas unitarias TDD 
-
+/*
   describe('Test for Login -> iniciarSesion()',() =>{
     it('Shoul change user and password var',()=>{
       component.iniciarSesion();
-      expect(component.user /*&& component.password*/).not.toEqual("");
-    });
+      expect(component.user /*&& component.password).not.toEqual("");
+    /*});
   });
 
   /*describe('Test for Login -> iniciarSesion()',() =>{

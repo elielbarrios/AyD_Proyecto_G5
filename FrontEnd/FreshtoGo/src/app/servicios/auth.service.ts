@@ -10,7 +10,7 @@ import ip from './IP';
 })
 export class AuthService {
 
-  API_URI = 'http://18.216.65.170:3001/api';
+  API_URI = 'http://18.206.168.172:3001/api'; 
 
   constructor(private http: HttpClient) { }
 
@@ -26,7 +26,7 @@ export class AuthService {
 
   recuperar(user:any)
   {
-      return this.http.post(`${this.API_URI}/recupera`,user);
+      return this.http.post(ip + 'recupera',user);
   }
 }
 
