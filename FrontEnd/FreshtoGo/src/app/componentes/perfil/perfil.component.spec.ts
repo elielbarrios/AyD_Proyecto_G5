@@ -56,6 +56,17 @@ describe('PerfilComponent', () => {
     });
   });
 
+  describe("Given: Dados que un usuario quiere eliminar su cuenta", function(){
+    describe("When Entra a su perfil", function(){
+      describe("Then elimina su perfil", function(){
+        it("Muestra ", function(){
+          component.getUser();
+          expect(component.user.id_usuario).not.toEqual(null);
+        });
+      });
+    });
+  });
+
 
 
 
