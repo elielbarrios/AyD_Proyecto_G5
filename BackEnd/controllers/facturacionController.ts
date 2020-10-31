@@ -17,6 +17,7 @@ class FacturacionController
         res.json(retVal);
     }
 
+
     async deleteMetodosDePago(req : Request, res : Response) : Promise<void> //Eliminar tarjeta
     {
         var userid = req.body.userid;
@@ -46,6 +47,20 @@ class FacturacionController
             const insertion = await db.query('INSERT INTO orden_producto set ? ', [orderProduct]);
         }
         res.send({msg:'Orden creada correctamente'});
+    }
+
+
+
+    async Cambiarestado(req : Request, res : Response) : Promise<void> //cambio de estado
+    {
+        const { id_orden, estado} = req.body;
+        const retVal = await db.query('UPDATE orden SET estado=? WHERE id_orden = ?', [estado, id_orden] ); //valor a retornar
+        if(retVal.affectedRows ==0){
+            res.status(400).json({cambio: "0"});
+        }else{
+            res.status(200).json({cambio: "1"});
+        }
+   
     }
     /*
     {

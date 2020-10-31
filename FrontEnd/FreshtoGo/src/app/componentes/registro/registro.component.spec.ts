@@ -30,6 +30,7 @@ describe('RegistroComponent', () => {
   });
 
   // Pruebas unitarias TDD 
+  /*
   describe('Test for Login -> registrar()',() =>{
     it('Shoul change nombre, apellido, email, password, celular and nit var',()=>{
       component.registrar();

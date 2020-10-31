@@ -39,27 +39,6 @@ describe('Test for MetodospagoComponent', () => {
 
 
   //Unit test BDD
- 
-
-  describe("Given: Dada una lista de productos ", function(){
-    beforeEach(function(){
-      let productosvalidos = false;
-    });
-    describe("When: Cuando se confirma el carrito", function(){
-      beforeEach(function(){
-        this.productosvalidos = component.validarProductos(component.productList);
-      })
-    
-      describe("Then: Entonces se mostrara una nueva tarjeta para indicar el modo de pago  ", function(){
-        it("Mostrando mensaje de alerta", function(){
-          expect(this.productosvalidos).toBe(true);
-          // Esto habilita una nueva tarjeta donde se podran ingresar los datos de la tarjeta
-        });
-    
-      });
-    });
-  });
-
 
   describe("Given: Dados los datos de la tarjeta de credito", function(){
     
@@ -69,11 +48,22 @@ describe('Test for MetodospagoComponent', () => {
           numero: "123-456-759",
           fecha: "25/09/2020",
         } 
+        let usuario:any = {
+          id_usuario:0,
+          nombre:"Usuario Prueba",
+          apellido:"Es prueba",
+          email:"prueba@prueba.com",
+          password:"1234",
+          celular:"50505050",
+          nit:"987654K"
+        } 
+        component.user = usuario;
       });
       describe("Then se validan los datos de la tarjeta de credito  ", function(){
         it("Muestra ", function(){
-          expect(component.validarDatos(this.tarjeta)).toEqual(true);
-
+          let tarjetaAux = component.tarjeta;
+          component.validarDatos(this.tarjeta);
+          expect(component.tarjeta).toEqual(tarjetaAux);
         });
       });
     });
@@ -84,7 +74,7 @@ describe('Test for MetodospagoComponent', () => {
     describe("When confirmamos que estén bien", function(){
       beforeEach(function(){
         let usuario:any = {
-          id_usurario:0,
+          id_usuario:0,
           nombre:"Usuario Prueba",
           apellido:"Es prueba",
           email:"prueba@prueba.com",
@@ -92,10 +82,13 @@ describe('Test for MetodospagoComponent', () => {
           celular:"50505050",
           nit:"987654K"
         } 
+        component.user = usuario;
       });
       describe("Then se validan los datos del usuario", function(){
         it("Muestra ", function(){
-          expect(component.validarDatos(this.usuario)).toEqual(true);
+          let tarjetaAux = component.tarjeta;
+          component.validarDatos()
+          expect(tarjetaAux).toEqual(component.tarjeta);
         });
       });
     });
@@ -104,6 +97,18 @@ describe('Test for MetodospagoComponent', () => {
   /** Prueba untaria Facturar */
   describe("Given: Dados los datos de los productos que se compraran", function(){  
     describe("When: confirmamos que los datos de los productos esten cargados", function(){
+      beforeEach(function(){
+        let usuario:any = {
+          id_usuario:0,
+          nombre:"Usuario Prueba",
+          apellido:"Es prueba",
+          email:"prueba@prueba.com",
+          password:"1234",
+          celular:"50505050",
+          nit:"987654K"
+        } 
+        component.user = usuario;
+      });
       describe("Then: se valida que los datos para la facturacion sean validos", function(){
           it('Muestra ', () => {
               expect(component.Facturar()).toEqual("cargado");

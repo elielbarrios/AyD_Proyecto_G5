@@ -18,8 +18,8 @@ export class RecuperacionComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService) 
   { 
-    this.user.nit = String('vacio');
-    this.user.email = String('vacio');
+    this.user.nit = String('nit');
+    this.user.email = String('email');
     this.user.password = String('vacio');
   }
 
@@ -37,7 +37,7 @@ export class RecuperacionComponent implements OnInit {
         console.log(res)
         return;
       },
-      error => {})
+      error => { })
 
       this.user.password = String('error');
   }

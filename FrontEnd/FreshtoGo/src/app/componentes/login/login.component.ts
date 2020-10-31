@@ -54,4 +54,9 @@ export class LoginComponent implements OnInit {
     alert(msj);
   }
 
+  gotoRecuperarPassword()
+  {
+    this.router.navigate(['/recuperar']);
+  }
+
 }
