@@ -106,14 +106,6 @@ describe("Pruebas unitarias", () => {
 
     });
 
-
-    /*it("GET /products/:id - especific object", (done) => 
-    {
-        Request.get("http://localhost:3001/api/products/"+newEntityID2, (error, response, body) => {
-            expect(response.body).toBe([newEntity2]);
-            done();
-        })
-    });*/
     
     it("PUT /products/:id - especific object", (done) => 
     {

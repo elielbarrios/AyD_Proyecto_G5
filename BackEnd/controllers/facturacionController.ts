@@ -46,7 +46,7 @@ class FacturacionController
             var orderProduct = {fk_id_producto: products[i].producto, fk_id_orden: firstInsertion.insertId, total: (products[i].cantidad*products[i].precioUnitario), cantidad: (products[i].cantidad)};
             const insertion = await db.query('INSERT INTO orden_producto set ? ', [orderProduct]);
         }
-        res.send({msg:'Orden creada correctamente'});
+        res.send({msg:'Orden creada correctamente'})
     }
 
 
