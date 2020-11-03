@@ -213,21 +213,32 @@ describe("Pruebas unitarias", () => {
     });
 
     describe("GIVEN: El usuario entra a sus detalles de facturacion", () => { 
-        var userid = 1;
+        var userid = 60;
 
         describe("WHEN: Da click en guardar nuevo metodo de pago", ()=>{
-            var metodoDePago = {fk_id_usuario: userid, fecha: '2020/08', cvv: 334};
-            it("THEN: Retorna un arreglo con todos sus metodos de pago guardados", (done)=>{
+            var queryParams = {userid: userid};
+            it("THEN: Retorna un arreglo con todos sus metodos de pago guardados", async (done)=>{
+                var metodoDePago = {fk_id_usuario: userid, fecha: '2020/08', cvv: 334};
+                Request.get("http://localhost:3001/api/facturacion/detalles", {form: queryParams}, (error, response, body) => {
+                    var length = JSON.parse(response.body).length;
+                    console.log("ACTUALMENTE el ID "+userid+ " TIENE ->"+length+" TARJETAS");
+                
                 Request.post("http://localhost:3001/api/facturacion/detalles", {form: metodoDePago}, (error, response, body) => {
-                    expect(response.body.length).toBeGreaterThan(0);
+                    console.log(response.body);
+
+                Request.get("http://localhost:3001/api/facturacion/detalles", {form: queryParams}, (error, response, body) => {
+                    var parsedResponse = JSON.parse(response.body);
+                    console.log("AHORA el ID "+userid+ " TIENE ->"+parsedResponse.length+" TARJETAS");
+                    expect(parsedResponse.length).toBeGreaterThan(length);
                     done();
                 })
+                })
+                });
+
             });
-
         });
-    
-    });
 
+    });
 
     // Recuperacion de contraseña
     describe("GIVEN: El usuario quiere recuperar  contraseña", () => { 
