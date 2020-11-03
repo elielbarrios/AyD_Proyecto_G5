@@ -32,21 +32,7 @@ class FacturacionController
         var products = req.body.products;
         var currentDate = new Date();
         //STR_TO_DATE('1-01-2012', '%d-%m-%Y') 
-        var finalValue = 0;
-        var date = currentDate.getDay()+"-"+currentDate.getMonth()+"-"+currentDate.getFullYear();
-        for(var i = 0; i < products.length; i++)
-        {
-            finalValue+=(products[i].cantidad*products[i].precioUnitario);
-        }
-        var finalObj = {fk_id_usuario: clientId, monto:finalValue,estado: 0,fecha: currentDate, No_articulos: products.length, tipo_pago: 0 };
-        const firstInsertion = await db.query('INSERT INTO orden set ?',[finalObj]);
-        console.log(firstInsertion);
-        for(var i = 0; i < products.length; i++)
-        {
-            var orderProduct = {fk_id_producto: products[i].producto, fk_id_orden: firstInsertion.insertId, total: (products[i].cantidad*products[i].precioUnitario), cantidad: (products[i].cantidad)};
-            const insertion = await db.query('INSERT INTO orden_producto set ? ', [orderProduct]);
-        }
-        res.send({msg:'Orden creada correctamente'})
+        var finalValue
     }
 
 
