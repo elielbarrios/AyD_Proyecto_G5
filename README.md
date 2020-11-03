@@ -8,7 +8,7 @@
 
 <ul>
 <li> Alvin Alegría - 201602688</li>
-<li> Miamin Barrios - 201603016 </li>
+<li> Eliel Barrios - 201603016 </li>
 <li> Marvin Guzman - 201602517 </li>
 <li> William Corado - 201602412 </li>
 <li> Nery Herrera - 201602870 </li>
