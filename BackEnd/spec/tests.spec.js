@@ -221,7 +221,7 @@ describe("Pruebas unitarias", () => {
                 Request.get("http://localhost:3001/api/facturacion/detalles", {form: queryParams}, (error, response, body) => {
                     var parsedResponse = JSON.parse(response.body);
                     console.log("AHORA el ID "+userid+ " TIENE ->"+parsedResponse.length+" TARJETAS");
-                    expect(parsedResponse.length).toBeGreaterThan(length);
+                    expect(parsedResponse.length).toBeGreaterThann(length);
                     done();
                 })
                 })
